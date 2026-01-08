@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Sejarah Perjuangan dan Nilai Dasar Pelajar Islam Indonesia (PII) Kalimantan Barat.">
+    <title>Sejarah & Nilai - PW PII Kalbar</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts Configuration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&family=Press+Start+2P&family=VT323&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind Config for Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pii: {
+                            primary: '#1e3a8a',   /* Biru PII Tua */
+                            secondary: '#15803d', /* Hijau Islam */
+                            accent: '#d97706',    /* Emas Gelap */
+                            soft: '#f0f9ff',      /* Biru Langit Sangat Muda */
+                            surface: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Amiri', 'serif'],
+                        pixel: ['"Press Start 2P"', 'cursive'],
+                        retro: ['VT323', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'islamic-pattern': "url('https://www.transparenttextures.com/patterns/arabesque.png')",
+                        'paper-texture': "url('https://www.transparenttextures.com/patterns/cream-paper.png')"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* --- GLOBAL STYLES --- */
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            overflow-x: hidden;
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            /* Tekstur halus */
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 5px;
+            border: 2px solid #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* --- COMPONENT CLASSES --- */
+
+        /* Kartu "Soft" yang Elegan */
+        .soft-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .soft-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3a8a, #d97706);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .soft-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #1e3a8a;
+        }
+
+        .soft-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Pixel Badge (Sentuhan Retro) */
+        .pixel-badge {
+            font-family: 'VT323', monospace;
+            background: #eff6ff;
+            color: #1e3a8a;
+            padding: 4px 12px;
+            border-radius: 4px;
+            border-left: 4px solid #1e3a8a;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 1.1rem;
+            display: inline-block;
+            box-shadow: 2px 2px 0 rgba(30, 58, 138, 0.1);
+        }
+
+        /* --- FASE CARD (ISLAMIC STYLE) --- */
+        .fase-card {
+            position: relative;
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Dekorasi Tengah (Islamic Pattern) */
+        .fase-pattern-box {
+            height: 140px;
+            background-color: #f8fafc;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #f1f5f9;
+            overflow: hidden;
+        }
+
+        .islamic-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e3a8a' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            transition: transform 10s linear;
+        }
+
+        .fase-card:hover .islamic-bg {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .fase-icon-container {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            z-index: 10;
+            border: 4px solid #f0f9ff;
+            transition: all 0.3s;
+        }
+
+        .fase-card:hover .fase-icon-container {
+            border-color: #d97706;
+            /* Gold Border on Hover */
+            transform: scale(1.1);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes float-soft {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-float-soft {
+            animation: float-soft 5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-slow {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.02);
+            }
+        }
+
+        .animate-pulse-slow {
+            animation: pulse-slow 3s infinite ease-in-out;
+        }
+
+        /* Timeline Line Soft */
+        .timeline-line-soft {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, #cbd5e1 10%, #cbd5e1 90%, transparent);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        /* Carousel Hide Scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Modal Transitions - Muncul dari Tengah */
+        #info-modal,
+        #fase-modal {
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .modal-content {
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+        }
+
+        /* Partikel Timeline */
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) translateX(50px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            animation: particleFloat linear infinite;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Section Divider Estetik */
+        .section-divider {
+            position: relative;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #cbd5e1, transparent);
+            margin: 0 auto;
+            max-width: 200px;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: #3b82f6;
+            border-radius: 50%;
+        }
+
+        .section-divider::before {
+            left: 0;
+        }
+
+        .section-divider::after {
+            right: 0;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            transform-origin: top;
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+            transform: translateY(10px);
+            pointer-events: none;
+        }
+
+        .dropdown-group:hover .dropdown-menu {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- NAVBAR (Selaras dengan index.html) -->
+    <nav
+        class="sticky top-0 z-50 flex items-center justify-between px-6 md:px-10 py-4 bg-white/70 backdrop-blur-lg border-b border-gray-100">
+        <div class="flex items-center space-x-8">
+            <div class="text-2xl font-bold text-indigo-900">
+                <a href="index.html">
+                    <img src="./logo/pwpii kalbar.png" alt="Logo" class="h-10 object-contain">
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-6 text-gray-600 font-medium text-sm">
+                <!-- Dropdown Tentang Kami -->
+                <div class="relative dropdown-group py-2">
+                    <a href="#" class="hover:text-indigo-600 transition flex items-center gap-1 cursor-default">
+                        Tentang Kami
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg>
+                    </a>
+                    <div
+                        class="absolute top-full left-0 w-56 bg-white border border-gray-100 shadow-xl rounded-2xl p-2 dropdown-menu opacity-0">
+                        <a href="struktur.html"
+                            class="block px-4 py-3 hover:bg-indigo-50 rounded-xl transition text-gray-700 hover:text-indigo-600 font-semibold">Struktur
+                            Organisasi</a>
+                        <a href="sejarah.html"
+                            class="block px-4 py-3 bg-indigo-50 text-indigo-600 rounded-xl transition font-semibold">Sejarah
+                            Berdiri</a>
+                        <a href="#"
+                            class="block px-4 py-3 hover:bg-indigo-50 rounded-xl transition text-gray-700 hover:text-indigo-600 font-semibold">Falsafah
+                            Gerakan</a>
+                    </div>
+                </div>
+
+                <a href="index.html#sambutan" class="hover:text-indigo-600 transition py-2">Sambutan</a>
+
+                <!-- Dropdown Program -->
+                <div class="relative dropdown-group py-2">
+                    <a href="#program" class="hover:text-indigo-600 transition flex items-center gap-1 cursor-default">
+                        Program
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg>
+                    </a>
+                    <div
+                        class="absolute top-full left-0 w-56 bg-white border border-gray-100 shadow-xl rounded-2xl p-2 dropdown-menu opacity-0">
+                        <a href="#"
+                            class="block px-4 py-3 hover:bg-indigo-50 rounded-xl transition text-gray-700 hover:text-indigo-600 font-semibold">Riset
+                            Pelajar</a>
+                        <a href="#"
+                            class="block px-4 py-3 hover:bg-indigo-50 rounded-xl transition text-gray-700 hover:text-indigo-600 font-semibold">Madrasah
+                            Digital</a>
+                        <a href="#"
+                            class="block px-4 py-3 hover:bg-indigo-50 rounded-xl transition text-gray-700 hover:text-indigo-600 font-semibold">Website
+                            Cendekia</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hidden md:flex space-x-3">
+            <button
+                class="px-5 py-2 text-sm text-indigo-600 font-semibold hover:text-indigo-800 transition">Masuk</button>
+            <button
+                class="px-5 py-2 bg-indigo-600 text-white text-sm rounded-full font-semibold hover:bg-indigo-700 shadow-md transition transform hover:scale-105">Gabung
+                PII</button>
+        </div>
+    </nav>
+
+    <!-- HERO HEADER: SOFT & ELEGANT -->
+    <header class="relative pt-24 pb-32 overflow-hidden bg-white">
+        <!-- Soft Background Elements -->
+        <div
+            class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/arabesque.png')] opacity-[0.03]">
+        </div>
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-indigo-50/50 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-indigo-50/50 to-transparent"></div>
+
+        <!-- Decorative Animated Blobs -->
+        <div
+            class="absolute top-20 left-10 w-72 h-72 bg-yellow-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-float-soft">
+        </div>
+        <div class="absolute top-40 right-10 w-80 h-80 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-float-soft"
+            style="animation-delay: 2s;"></div>
+
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
+            <!-- Badge -->
+            <div
+                class="inline-flex items-center gap-2 px-5 py-2 bg-white border border-indigo-100 rounded-full shadow-sm mb-8 animate-pulse-slow">
+                <span class="text-xl">📜</span>
+                <span class="text-xs font-bold tracking-widest text-indigo-900 uppercase font-serif">Arsip Sejarah &
+                    Nilai</span>
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 leading-tight mb-6 font-serif tracking-tight">
+                Jejak Langkah <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-pii-primary to-pii-accent">Perjuangan
+                    PII</span>
+            </h1>
+
+            <!-- Subtitle/Quote -->
+            <p
+                class="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-10 font-light font-serif italic">
+                "Menolak Lupa, Melanjutkan Sejarah. Sebuah perjalanan panjang merawat nalar dan membangun peradaban dari
+                Yogyakarta hingga Kalimantan Barat."
+            </p>
+
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#fase"
+                    class="px-8 py-4 bg-pii-primary text-white font-bold rounded-xl hover:bg-indigo-800 transition shadow-lg shadow-indigo-200 flex items-center justify-center gap-2">
+                    <span>Lihat 5 Fase</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 13l-7 7-7-7m14-8l-7 7-7-7"></path>
+                    </svg>
+                </a>
+                <a href="#timeline"
+                    class="px-8 py-4 bg-white text-pii-primary border-2 border-indigo-100 font-bold rounded-xl hover:border-indigo-300 hover:bg-indigo-50 transition shadow-sm flex items-center justify-center gap-2">
+                    <span>Garis Waktu</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Divider Estetik -->
+    <div class="py-8 bg-gradient-to-b from-white to-indigo-50/30">
+        <div class="section-divider"></div>
+    </div>
+
+    <!-- SECTION: 5 FASE KEBANGKITAN (VISUAL REVISION) -->
+    <section id="fase" class="py-24 px-6 relative bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-bold text-slate-900 mb-4 font-serif">5 Fase Kebangkitan</h2>
+                <p class="text-slate-500 text-lg max-w-2xl mx-auto">Periodisasi sejarah pergerakan Pelajar Islam
+                    Indonesia berdasarkan dokumen Tafsir Asasi.</p>
+                <div class="w-24 h-1 bg-pii-accent mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 lg:gap-8">
+
+                <!-- CARD 1: KESADARAN -->
+                <div class="fase-card group" onclick="openFase('fase1')">
+                    <div class="fase-pattern-box bg-indigo-50">
+                        <div class="islamic-bg"></div>
+                        <div class="fase-icon-container">
+                            <span class="text-4xl">💡</span>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center flex-grow flex flex-col justify-between">
+                        <div>
+                            <span class="pixel-badge text-lg mb-3">1947 - 1949</span>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2 font-serif mt-2">Kesadaran</h4>
+                            <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">Kesadaran kolektif pelajar
+                                Islam di tengah revolusi fisik kemerdekaan.</p>
+                        </div>
+                        <button
+                            class="mt-4 text-[10px] font-bold text-pii-primary uppercase tracking-widest hover:underline">Baca
+                            Detail</button>
+                    </div>
+                </div>
+
+                <!-- CARD 2: KEBANGKITAN -->
+                <div class="fase-card group" onclick="openFase('fase2')">
+                    <div class="fase-pattern-box bg-green-50">
+                        <div class="islamic-bg" style="filter: hue-rotate(90deg);"></div>
+                        <div class="fase-icon-container">
+                            <span class="text-4xl">⚔️</span>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center flex-grow flex flex-col justify-between">
+                        <div>
+                            <span class="pixel-badge text-lg mb-3">1949 - 1966</span>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2 font-serif mt-2">Kebangkitan</h4>
+                            <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">Bangkit melawan penjajah
+                                (Brigade PII) dan ideologi komunis.</p>
+                        </div>
+                        <button
+                            class="mt-4 text-[10px] font-bold text-pii-primary uppercase tracking-widest hover:underline">Baca
+                            Detail</button>
+                    </div>
+                </div>
+
+                <!-- CARD 3: PERLUASAN -->
+                <div class="fase-card group" onclick="openFase('fase3')">
+                    <div class="fase-pattern-box bg-blue-50">
+                        <div class="islamic-bg" style="filter: hue-rotate(180deg);"></div>
+                        <div class="fase-icon-container">
+                            <span class="text-4xl">🌍</span>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center flex-grow flex flex-col justify-between">
+                        <div>
+                            <span class="pixel-badge text-lg mb-3">1966 - 1980</span>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2 font-serif mt-2">Perluasan</h4>
+                            <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">Ekspansi organisasi ke
+                                seluruh pelosok Nusantara termasuk Kalbar.</p>
+                        </div>
+                        <button
+                            class="mt-4 text-[10px] font-bold text-pii-primary uppercase tracking-widest hover:underline">Baca
+                            Detail</button>
+                    </div>
+                </div>
+
+                <!-- CARD 4: PENGOKOHAN -->
+                <div class="fase-card group" onclick="openFase('fase4')">
+                    <div class="fase-pattern-box bg-amber-50">
+                        <div class="islamic-bg" style="filter: hue-rotate(45deg);"></div>
+                        <div class="fase-icon-container">
+                            <span class="text-4xl">🧱</span>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center flex-grow flex flex-col justify-between">
+                        <div>
+                            <span class="pixel-badge text-lg mb-3">1980 - 1998</span>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2 font-serif mt-2">Pengokohan</h4>
+                            <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">Konsolidasi sistem kaderisasi
+                                dan nilai dasar organisasi.</p>
+                        </div>
+                        <button
+                            class="mt-4 text-[10px] font-bold text-pii-primary uppercase tracking-widest hover:underline">Baca
+                            Detail</button>
+                    </div>
+                </div>
+
+                <!-- CARD 5: MENCIPTA -->
+                <div class="fase-card group" onclick="openFase('fase5')">
+                    <div class="fase-pattern-box bg-purple-50">
+                        <div class="islamic-bg" style="filter: hue-rotate(270deg);"></div>
+                        <div class="fase-icon-container">
+                            <span class="text-4xl">🏛️</span>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center flex-grow flex flex-col justify-between">
+                        <div>
+                            <span class="pixel-badge text-lg mb-3">1998 - Now</span>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2 font-serif mt-2">Mencipta</h4>
+                            <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">Membangun peradaban dan
+                                memelihara nilai Islam di era modern.</p>
+                        </div>
+                        <button
+                            class="mt-4 text-[10px] font-bold text-pii-primary uppercase tracking-widest hover:underline">Baca
+                            Detail</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider Estetik -->
+    <div class="py-8 bg-gradient-to-b from-white to-slate-50">
+        <div class="section-divider"></div>
+    </div>
+
+    <!-- SECTION: TIMELINE (GARIS WAKTU) -->
+    <section id="timeline" class="py-24 px-6 relative bg-slate-50 overflow-hidden">
+        <!-- Konten Partikel Background -->
+        <div id="particles-container" class="absolute inset-0 pointer-events-none" style="z-index: 1;"></div>
+
+        <div class="max-w-4xl mx-auto relative" style="z-index: 10;">
+            <div class="text-center mb-16">
+                <span
+                    class="text-pii-primary font-bold tracking-widest uppercase text-xs border border-indigo-200 bg-white px-4 py-2 rounded-full shadow-sm">Historical
+                    Journey</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-6 mb-4 font-serif">Garis Waktu Perjuangan
+                </h2>
+                <p class="text-slate-500">Dari Yogyakarta Menuju Khatulistiwa</p>
+            </div>
+
+            <div class="relative">
+                <div class="timeline-line-soft"></div>
+
+                <!-- Item 1 -->
+                <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative z-10 group cursor-pointer"
+                    onclick="openInfo('genesis')">
+                    <div class="md:w-5/12 text-right pr-8 hidden md:block">
+                        <span
+                            class="text-6xl font-serif text-slate-200 font-bold group-hover:text-indigo-200 transition duration-300">1947</span>
+                    </div>
+                    <div
+                        class="w-10 h-10 bg-white border-4 border-pii-primary rounded-full shadow-md flex items-center justify-center z-20 group-hover:scale-110 transition duration-300">
+                        <div class="w-2 h-2 bg-pii-primary rounded-full"></div>
+                    </div>
+                    <div class="md:w-5/12 pl-0 md:pl-8 mt-4 md:mt-0 w-full">
+                        <div class="soft-card p-6 border-l-4 border-l-pii-primary hover:pl-8">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">Kelahiran PII</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">4 Mei 1947. Didirikan oleh Joesdi Ghazali
+                                di Yogyakarta.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-12 relative z-10 group cursor-pointer"
+                    onclick="openInfo('agresi')">
+                    <div class="md:w-5/12 text-left pl-8 hidden md:block">
+                        <span
+                            class="text-6xl font-serif text-slate-200 font-bold group-hover:text-red-200 transition duration-300">1949</span>
+                    </div>
+                    <div
+                        class="w-10 h-10 bg-white border-4 border-red-500 rounded-full shadow-md flex items-center justify-center z-20 group-hover:scale-110 transition duration-300">
+                        <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                    </div>
+                    <div class="md:w-5/12 pr-0 md:pr-8 mt-4 md:mt-0 w-full text-right md:text-left">
+                        <div class="soft-card p-6 border-r-4 md:border-r-0 md:border-l-4 border-red-500 hover:pl-8">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">Brigade PII</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">Turun ke medan perang melawan Agresi
+                                Militer Belanda.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2.5 (PII Wati) -->
+                <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative z-10 group cursor-pointer"
+                    onclick="openInfo('piiwati')">
+                    <div class="md:w-5/12 text-right pr-8 hidden md:block">
+                        <span
+                            class="text-6xl font-serif text-slate-200 font-bold group-hover:text-pink-200 transition duration-300">1950s</span>
+                    </div>
+                    <div
+                        class="w-10 h-10 bg-white border-4 border-pink-500 rounded-full shadow-md flex items-center justify-center z-20 group-hover:scale-110 transition duration-300">
+                        <div class="w-2 h-2 bg-pink-500 rounded-full"></div>
+                    </div>
+                    <div class="md:w-5/12 pl-0 md:pl-8 mt-4 md:mt-0 w-full">
+                        <div class="soft-card p-6 border-l-4 border-l-pink-500 hover:pl-8">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">PII Wati (Wanita)</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">Organisasi pelajar muslimah untuk
+                                pemberdayaan perempuan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 (Kalbar) -->
+                <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-12 relative z-10 group cursor-pointer"
+                    onclick="openInfo('kalbar1')">
+                    <div class="md:w-5/12 text-left pl-8 hidden md:block">
+                        <span
+                            class="text-6xl font-serif text-slate-200 font-bold group-hover:text-green-200 transition duration-300">1960s</span>
+                    </div>
+                    <div
+                        class="w-10 h-10 bg-white border-4 border-green-500 rounded-full shadow-md flex items-center justify-center z-20 group-hover:scale-110 transition duration-300">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    </div>
+                    <div class="md:w-5/12 pr-0 md:pr-8 mt-4 md:mt-0 w-full text-right md:text-left">
+                        <div class="soft-card p-6 border-r-4 md:border-r-0 md:border-l-4 border-green-500 hover:pl-8">
+                            <h4 class="font-bold text-lg text-slate-900 mb-1">Masuk ke Kalbar</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">Dibawa oleh pelajar perantau. Komisariat
+                                pertama di Pontianak.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider Estetik -->
+    <div class="py-8 bg-gradient-to-b from-slate-50 to-white">
+        <div class="section-divider"></div>
+    </div>
+
+    <!-- SECTION: TAFSIR ASASI EXPLORER (NEW FEATURE) -->
+    <section class="py-24 px-6 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20">
+        </div>
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="flex flex-col lg:flex-row gap-16 items-start">
+
+                <!-- Left Info -->
+                <div class="lg:w-1/3 sticky top-32">
+                    <div
+                        class="inline-block px-3 py-1 bg-yellow-100 text-yellow-700 font-bold rounded mb-4 text-xs font-pixel tracking-wide border border-yellow-200">
+                        SKILL TREE</div>
+                    <h2 class="text-4xl font-bold mb-6 font-serif text-slate-900">Nilai Dasar Perjuangan</h2>
+                    <p class="text-slate-600 mb-8 leading-relaxed text-lg">
+                        Bersumber dari dokumen "Tafsir Asasi PII", berikut adalah pondasi filosofis yang membentuk
+                        karakter setiap kader Pelajar Islam Indonesia.
+                    </p>
+                    <button
+                        class="px-6 py-3 bg-white border-2 border-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-50 hover:border-slate-300 transition flex items-center gap-3 shadow-sm group">
+                        <div class="bg-red-100 p-1 rounded">
+                            <svg class="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
+                            </svg>
+                        </div>
+                        <span>Pelajari Dokumen PDF</span>
+                    </button>
+                </div>
+
+                <!-- Right Grid -->
+                <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                    <!-- Value Card 1 -->
+                    <div class="soft-card p-8 cursor-pointer group hover:bg-gradient-to-br from-white to-indigo-50"
+                        onclick="openInfo('keseimbangan')">
+                        <div
+                            class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                            ⚖️</div>
+                        <h3 class="font-bold text-xl mb-3 text-slate-900">Keseimbangan</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">Bahagia dunia dan akhirat. Paduan harmonis
+                            antara ilmu, iman, dan amal perbuatan.</p>
+                    </div>
+
+                    <!-- Value Card 2 -->
+                    <div class="soft-card p-8 cursor-pointer group hover:bg-gradient-to-br from-white to-green-50"
+                        onclick="openInfo('pendidikan')">
+                        <div
+                            class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                            🌱</div>
+                        <h3 class="font-bold text-xl mb-3 text-slate-900">Pendidikan & Kebudayaan</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">Pendidikan yang sesuai dengan Islam untuk
+                            seluruh rakyat Indonesia. Membentuk pribadi muslim cendekia.</p>
+                    </div>
+
+                    <!-- Value Card 3 -->
+                    <div class="soft-card p-8 cursor-pointer group hover:bg-gradient-to-br from-white to-red-50"
+                        onclick="openInfo('ukhuwah')">
+                        <div
+                            class="w-14 h-14 bg-red-100 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                            🤝</div>
+                        <h3 class="font-bold text-xl mb-3 text-slate-900">Ukhuwah Islamiyah</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">Persatuan abadi umat Islam sebagai basis
+                            kekuatan yang melampaui batas golongan.</p>
+                    </div>
+
+                    <!-- Value Card 4 -->
+                    <div class="soft-card p-8 cursor-pointer group hover:bg-gradient-to-br from-white to-yellow-50"
+                        onclick="openInfo('indonesia')">
+                        <div
+                            class="w-14 h-14 bg-yellow-100 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                            🇮🇩</div>
+                        <h3 class="font-bold text-xl mb-3 text-slate-900">Keindonesiaan</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed">Komitmen kebangsaan. PII adalah bagian
+                            integral dari bangsa Indonesia yang majemuk.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider Estetik -->
+    <div class="py-8 bg-gradient-to-b from-white to-slate-50">
+        <div class="section-divider"></div>
+    </div>
+
+    <!-- SECTION: HALL OF FAME (CAROUSEL MANUAL) -->
+    <section class="py-24 px-6 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 font-serif">Hall of Fame</h2>
+            <p class="text-slate-500 mt-2">Tokoh & Legenda PII Kalimantan Barat</p>
+        </div>
+
+        <div class="relative max-w-6xl mx-auto">
+            <!-- Nav Buttons -->
+            <button onclick="moveSlider(-1)"
+                class="absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white border border-gray-200 text-indigo-600 rounded-full flex items-center justify-center shadow-lg hover:bg-indigo-50 transition hidden md:flex">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button onclick="moveSlider(1)"
+                class="absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white border border-gray-200 text-indigo-600 rounded-full flex items-center justify-center shadow-lg hover:bg-indigo-50 transition hidden md:flex">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+
+            <!-- Scroll Container -->
+            <div id="legends-container"
+                class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar pb-8 px-4">
+                <!-- Data Tokoh (Placeholder) -->
+                <!-- Card 1 -->
+                <div
+                    class="w-72 bg-white border border-gray-200 p-4 rounded-2xl shadow-sm hover:shadow-xl transition flex-shrink-0 snap-center group">
+                    <div class="aspect-[3/4] bg-indigo-50 rounded-xl mb-4 overflow-hidden relative">
+                        <img src="./logo/KB/munir.png"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500 filter sepia-[0.3] group-hover:sepia-0">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <span
+                                class="text-white text-[10px] font-bold bg-indigo-600 px-2 py-1 rounded font-pixel uppercase">Manajemen</span>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900">Drs. A. Munir, M.M</h3>
+                    <p class="text-sm text-slate-500">Pendiri Sajadah Fajar & Yayasan Bina 45</p>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="w-72 bg-white border border-gray-200 p-4 rounded-2xl shadow-sm hover:shadow-xl transition flex-shrink-0 snap-center group">
+                    <div class="aspect-[3/4] bg-green-50 rounded-xl mb-4 overflow-hidden relative">
+                        <img src="./logo/KB/yapandi.png"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500 filter sepia-[0.3] group-hover:sepia-0">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <span
+                                class="text-white text-[10px] font-bold bg-green-600 px-2 py-1 rounded font-pixel uppercase">Pendidikan</span>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900">Dr. H. Yapandi, M.Pd</h3>
+                    <p class="text-sm text-slate-500">Wakil Dekan III FDKI IAIN Pontianak </p>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="w-72 bg-white border border-gray-200 p-4 rounded-2xl shadow-sm hover:shadow-xl transition flex-shrink-0 snap-center group">
+                    <div class="aspect-[3/4] bg-yellow-50 rounded-xl mb-4 overflow-hidden relative">
+                        <img src="./logo/KB/herman.png"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500 filter sepia-[0.3] group-hover:sepia-0">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <span
+                                class="text-white text-[10px] font-bold bg-yellow-500 px-2 py-1 rounded font-pixel uppercase">Hukum</span>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900">Dr. Herman Hofi Munawar</h3>
+                    <p class="text-sm text-slate-500">Pengacara dan Pengamat Politik</p>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="w-72 bg-white border border-gray-200 p-4 rounded-2xl shadow-sm hover:shadow-xl transition flex-shrink-0 snap-center group">
+                    <div class="aspect-[3/4] bg-purple-50 rounded-xl mb-4 overflow-hidden relative">
+                        <img src="https://via.placeholder.com/300x400?text=TOKOH+4"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500 filter sepia-[0.3] group-hover:sepia-0">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <span
+                                class="text-white text-[10px] font-bold bg-purple-600 px-2 py-1 rounded font-pixel uppercase">Intelektual</span>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900">Nama Tokoh 4</h3>
+                    <p class="text-sm text-slate-500">Cendekiawan Muda</p>
+                </div>
+                <!-- Card 5 -->
+                <div
+                    class="w-72 bg-white border border-gray-200 p-4 rounded-2xl shadow-sm hover:shadow-xl transition flex-shrink-0 snap-center group">
+                    <div class="aspect-[3/4] bg-blue-50 rounded-xl mb-4 overflow-hidden relative">
+                        <img src="https://via.placeholder.com/300x400?text=TOKOH+5"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500 filter sepia-[0.3] group-hover:sepia-0">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <span
+                                class="text-white text-[10px] font-bold bg-blue-600 px-2 py-1 rounded font-pixel uppercase">Diplomat</span>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900">Nama Tokoh 5</h3>
+                    <p class="text-sm text-slate-500">Kiprah Internasional</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER LENGKAP -->
+    <footer class="bg-slate-900 pt-20 pb-10 text-white relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 text-left">
+            <!-- Brand -->
+            <div class="md:col-span-1 space-y-6">
+                <h2 class="text-2xl font-bold tracking-tight text-white font-serif italic">PW PII KALBAR</h2>
+                <p class="text-gray-400 text-sm leading-relaxed">Organisasi massa pelajar tertua di Indonesia yang fokus
+                    pada kaderisasi dan pendidikan untuk mewujudkan muslim yang cendekia dan pemimpin.</p>
+                <div class="flex space-x-4">
+                    <a href="#"
+                        class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white hover:text-slate-900 transition"><svg
+                            class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg></a>
+                    <a href="#"
+                        class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white hover:text-slate-900 transition"><svg
+                            class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                        </svg></a>
+                    <a href="#"
+                        class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white hover:text-slate-900 transition"><svg
+                            class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                        </svg></a>
+                </div>
+            </div>
+            <!-- Navigasi -->
+            <div class="md:col-span-1">
+                <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Navigasi</h4>
+                <ul class="space-y-4 text-gray-400 text-sm">
+                    <li><a href="#" class="hover:text-pii-accent transition">Beranda</a></li>
+                    <li><a href="#" class="hover:text-pii-accent transition">Struktur Organisasi</a></li>
+                    <li><a href="#" class="hover:text-pii-accent transition">Sejarah PII</a></li>
+                    <li><a href="#" class="hover:text-pii-accent transition">Riset Pelajar</a></li>
+                </ul>
+            </div>
+            <!-- Kontak -->
+            <div class="md:col-span-2">
+                <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Hubungi Kami</h4>
+                <div class="space-y-4 text-gray-400 text-sm">
+                    <p class="flex items-start gap-3"><span class="text-pii-accent">📍</span> Jl. Ampera, No. 123,
+                        Pontianak.</p>
+                    <p class="flex items-center gap-3"><span class="text-pii-accent">📧</span>
+                        sekretariat@piikalbar.or.id</p>
+                    <p class="flex items-center gap-3"><span class="text-pii-accent">📞</span> +62 812 3456 7890</p>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 pt-10 border-t border-white/10 text-center">
+            <p class="text-gray-500 text-xs tracking-widest uppercase">&copy; 2024 PW PII Kalimantan Barat. All Rights
+                Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL FASE (POP-UP) -->
+    <div id="fase-modal"
+        class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4 opacity-0 invisible">
+        <div
+            class="modal-content relative w-full max-w-3xl bg-white border border-gray-200 shadow-2xl rounded-2xl p-8 max-h-[85vh] overflow-y-auto transform scale-95">
+            <button onclick="closeInfo()"
+                class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-red-50 text-gray-500 hover:text-red-500 rounded-full flex items-center justify-center transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+            <div class="flex flex-col items-center text-center">
+                <div class="w-20 h-20 bg-indigo-50 rounded-full flex items-center justify-center text-4xl mb-6 border-4 border-indigo-100"
+                    id="modal-icon">📜</div>
+                <span class="text-xs font-bold text-indigo-500 uppercase tracking-widest mb-2"
+                    id="modal-subtitle">SUBTITLE</span>
+                <h2 id="modal-title" class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 font-serif">Judul Fase
+                </h2>
+
+                <div class="text-left space-y-4 text-slate-600 leading-relaxed w-full bg-slate-50 p-6 rounded-xl border border-slate-100"
+                    id="modal-desc">
+                    <p>Deskripsi detail akan muncul di sini.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL INFO (UNIVERSAL) -->
+    <div id="info-modal"
+        class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4 opacity-0 invisible">
+        <div
+            class="modal-content relative w-full max-w-2xl bg-white border border-gray-200 shadow-2xl rounded-2xl p-8 max-h-[85vh] overflow-y-auto transform scale-95">
+            <button onclick="closeInfo()"
+                class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-red-50 text-gray-500 hover:text-red-500 rounded-full flex items-center justify-center transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+
+            <div class="text-center mb-6">
+                <span class="text-xs font-bold text-indigo-500 uppercase tracking-widest mb-1 block"
+                    id="info-subtitle">SUBTITLE</span>
+                <h3 id="info-title" class="text-2xl font-bold text-slate-900 font-serif">Title</h3>
+            </div>
+
+            <div class="prose prose-indigo max-w-none text-slate-600 leading-relaxed" id="info-desc">
+                Description here...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DATA KONTEN LENGKAP
+        const contentData = {
+            // FASE
+            'fase1': {
+                icon: "💡", title: "Fase Kesadaran", subtitle: "1947 - 1949",
+                desc: "<p>Fase awal di mana pelajar Islam menyadari perlunya wadah perjuangan untuk mengakomodir potensi pelajar Islam dalam mempertahankan kemerdekaan dan menyempurnakan pendidikan. Ditandai dengan lahirnya PII di Yogyakarta pada 4 Mei 1947.</p>"
+            },
+            'fase2': {
+                icon: "⚔️", title: "Fase Kebangkitan", subtitle: "1949 - 1966",
+                desc: "<p>Masa pembuktian patriotisme melalui Brigade PII. Pelajar Islam turun ke medan perang melawan Agresi Militer, sekaligus bangkit melawan ideologi komunis (PKI) yang mengancam akidah. PII menjadi garda terdepan penjaga moral pelajar.</p>"
+            },
+            'fase3': {
+                icon: "🌍", title: "Fase Perluasan", subtitle: "1966 - 1980",
+                desc: "<p>Ekspansi organisasi secara masif ke seluruh provinsi di Indonesia, termasuk masuknya PII ke Kalimantan Barat. Fokus pada kuantitas komisariat dan pemerataan akses organisasi hingga ke tingkat kecamatan dan desa.</p>"
+            },
+            'fase4': {
+                icon: "🧱", title: "Fase Pengokohan", subtitle: "1980 - 1998",
+                desc: "<p>Konsolidasi internal di tengah tekanan politik (Asas Tunggal). Penguatan sistem pengkaderan (Batra, Intra, Advance) dan penanaman nilai-nilai Tafsir Asasi agar organisasi kokoh menghadapi tantangan zaman.</p>"
+            },
+            'fase5': {
+                icon: "🏛️", title: "Fase Mencipta", subtitle: "1998 - Sekarang",
+                desc: "<p>Fase kontribusi nyata pasca reformasi. PII berorientasi pada penciptaan karya, pembangunan peradaban (Tamaddun), dan penguasaan IPTEK tanpa kehilangan jati diri sebagai hamba Allah.</p>"
+            },
+
+            // TIMELINE
+            'genesis': {
+                icon: "🚩", title: "Kelahiran PII", subtitle: "4 Mei 1947",
+                desc: `
+                    <div class="flex flex-col md:flex-row gap-6 items-start">
+                        <div class="md:w-1/3 flex-shrink-0">
+                            <div class="border-4 border-indigo-100 rounded-2xl overflow-hidden shadow-lg transform rotate-2 hover:rotate-0 transition duration-300 cursor-pointer relative" id="genesis-photo-container" onclick="toggleGenesisPhoto(event)">
+                                <img id="genesis-photo" src="./logo/KB/joesdi.png" alt="Joesdi Ghazali" class="w-full h-auto object-cover transition duration-500" style="filter: grayscale(100%);">
+                                <div class="absolute top-2 right-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded-full backdrop-blur-sm">
+                                    <span id="photo-hint">📷 Klik</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-center text-slate-500 mt-3 italic">Joesdi Ghazali - <span id="photo-era">1947</span></p>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h4 class="font-bold text-indigo-600 mb-3">Sejarah Berdirinya</h4>
+                            <p class="mb-4">Joesdi Ghazali mengumpulkan pelajar di Gedung Mualimin Yogyakarta. Mereka sepakat membentuk PII sebagai respon atas kondisi pendidikan yang terbelah (Pesantren vs Sekolah Umum) dan kebutuhan akan persatuan pelajar Islam.</p>
+                            <h4 class="font-bold text-indigo-600 mb-2 mt-4">Visi Awal</h4>
+                            <p class="mb-2">Membangun generasi pelajar yang:</p>
+                            <ul class="list-disc pl-5 space-y-1 text-sm">
+                                <li>Memiliki kesadaran kebangsaan yang tinggi</li>
+                                <li>Menguasai ilmu pengetahuan dan teknologi</li>
+                                <li>Berakhlak mulia berdasarkan nilai-nilai Islam</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            'agresi': {
+                icon: "🔫", title: "Brigade PII", subtitle: "Revolusi Fisik",
+                desc: `
+                    <div class="flex flex-col md:flex-row gap-6 items-start">
+                        <div class="md:w-1/3 flex-shrink-0">
+                            <div class="border-4 border-red-100 rounded-2xl overflow-hidden shadow-lg transform rotate-2 hover:rotate-0 transition duration-300">
+                                <img src="./logo/bri.png" alt="Brigade PII" class="w-full h-auto object-cover">
+                            </div>
+                            <p class="text-xs text-center text-slate-500 mt-3 italic">Prajurit Brigade PII (1949)</p>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h4 class="font-bold text-red-600 mb-3">Patriotisme dalam Aksi</h4>
+                            <p class="mb-4">Kader-kader PII tidak hanya duduk belajar, tapi memanggul senjata. Brigade PII terlibat dalam berbagai pertempuran gerilya mempertahankan kemerdekaan Indonesia dari kembalinya Belanda.</p>
+                            <h4 class="font-bold text-red-600 mb-2 mt-4">Kontribusi Nyata</h4>
+                            <ul class="list-disc pl-5 space-y-1 text-sm">
+                                <li>Ikut serta dalam pertempuran melawan agresi militer</li>
+                                <li>Mendirikan dapur umum untuk pejuang</li>
+                                <li>Menjadi kurir dan intelijen pergerakan</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            'piiwati': {
+                icon: "👩", title: "PII Wati (Wanita)", subtitle: "Dekade 1950-an",
+                desc: `
+                    <div class="flex flex-col md:flex-row gap-6 items-start">
+                        <div class="md:w-1/3 flex-shrink-0">
+                            <div class="border-4 border-pink-100 rounded-2xl overflow-hidden shadow-lg transform rotate-2 hover:rotate-0 transition duration-300">
+                                <img src="./logo/wati.png" alt="PII Wati" class="w-full h-auto object-cover">
+                            </div>
+                            <p class="text-xs text-center text-slate-500 mt-3 italic">Pelajar Muslimah PII Wati</p>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h4 class="font-bold text-pink-600 mb-3">Pemberdayaan Perempuan</h4>
+                            <p class="mb-4">PII Wati didirikan sebagai wadah khusus bagi pelajar muslimah untuk berkontribusi dalam pergerakan dengan tetap menjunjung nilai-nilai Islam dan kodrat keperempuanan.</p>
+                            <h4 class="font-bold text-pink-600 mb-2 mt-4">Program Utama</h4>
+                            <ul class="list-disc pl-5 space-y-1 text-sm">
+                                <li>Pendidikan agama dan keterampilan untuk muslimah</li>
+                                <li>Pengabdian masyarakat dan dakwah</li>
+                                <li>Membentuk karakter pelajar muslimah yang tangguh</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            'kalbar1': {
+                icon: "🌴", title: "Masuk ke Kalbar", subtitle: "Era 60-an",
+                desc: "<p>Semangat PII dibawa oleh para pelajar Kalbar yang menuntut ilmu di Jawa. Sekembalinya ke Pontianak, mereka mendirikan basis awal organisasi yang kemudian menyebar ke Singkawang dan Sambas.</p>"
+            },
+
+            // SKILL TREE
+            'keseimbangan': { icon: "⚖️", title: "Keseimbangan", subtitle: "Falsafah Gerakan", desc: "<p>Prinsip <i>Fiddunya Hasanah wa Fil Akhirati Hasanah</i>. PII menolak sekularisme yang memisahkan agama dari kehidupan, sekaligus menolak fatalisme yang melupakan dunia.</p>" },
+            'pendidikan': { icon: "🌱", title: "Pendidikan & Kebudayaan", subtitle: "Tujuan PII", desc: "<p>Cita-cita PII adalah terciptanya kesempurnaan pendidikan dan kebudayaan yang sesuai dengan Islam. Pendidikan yang tidak hanya mencerdaskan otak, tapi juga memuliakan akhlak.</p>" },
+            'ukhuwah': { icon: "🤝", title: "Ukhuwah Islamiyah", subtitle: "Basis Kekuatan", desc: "<p>Persaudaraan sesama muslim melampaui batas suku, ras, dan golongan. Di PII, semua pelajar muslim adalah saudara dalam ikatan akidah yang kokoh.</p>" },
+            'indonesia': { icon: "🇮🇩", title: "Keindonesiaan", subtitle: "Komitmen Kebangsaan", desc: "<p>PII adalah anak kandung revolusi. Cinta tanah air adalah sebagian dari iman. PII berkomitmen menjaga keutuhan NKRI dengan nilai-nilai Islam.</p>" }
+        };
+
+        // OPEN FASE MODAL
+        function openFase(id) {
+            openGenericModal(id, 'fase-modal');
+        }
+
+        // OPEN INFO MODAL (Timeline & Skill)
+        function openInfo(id) {
+            const data = contentData[id];
+            if (!data) return;
+
+            document.getElementById('info-title').innerText = data.title;
+            document.getElementById('info-subtitle').innerText = data.subtitle;
+            document.getElementById('info-desc').innerHTML = data.desc;
+
+            const modal = document.getElementById('info-modal');
+            modal.classList.remove('hidden', 'invisible');
+            modal.classList.add('flex');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('.modal-content').classList.remove('scale-95');
+                modal.querySelector('.modal-content').classList.add('scale-100');
+            }, 50);
+        }
+
+        // GENERIC MODAL OPENER (Internal Helper)
+        function openGenericModal(id, modalId) {
+            const data = contentData[id];
+            if (!data) return;
+
+            // Map data to specific modal IDs (Fase modal has slightly different IDs)
+            if (modalId === 'fase-modal') {
+                document.getElementById('modal-title').innerText = data.title;
+                document.getElementById('modal-subtitle').innerText = data.subtitle;
+                document.getElementById('modal-icon').innerText = data.icon;
+                document.getElementById('modal-desc').innerHTML = data.desc;
+            }
+
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('hidden', 'invisible');
+            modal.classList.add('flex');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('.modal-content').classList.remove('scale-95');
+                modal.querySelector('.modal-content').classList.add('scale-100');
+            }, 50);
+        }
+
+        // CLOSE ANY MODAL
+        function closeInfo() {
+            closeModalById('info-modal');
+            closeModalById('fase-modal');
+        }
+
+        function closeModalById(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+
+            modal.classList.add('opacity-0');
+            modal.querySelector('.modal-content').classList.remove('scale-100');
+            modal.querySelector('.modal-content').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden', 'invisible');
+                modal.classList.remove('flex');
+            }, 400);
+        }
+
+        // Generate Particles for Timeline
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            if (!container) return;
+
+            const particleCount = 15;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+
+                // Random positioning
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (8 + Math.random() * 10) + 's';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particle.style.width = (4 + Math.random() * 8) + 'px';
+                particle.style.height = particle.style.width;
+
+                container.appendChild(particle);
+            }
+        }
+
+        // Initialize particles on page load
+        window.addEventListener('DOMContentLoaded', createParticles);
+
+        // Toggle Genesis Photo (Grayscale to Color)
+        let isGenesisColor = false;
+        function toggleGenesisPhoto(event) {
+            event.stopPropagation(); // Prevent modal close
+            const photo = document.getElementById('genesis-photo');
+            const hint = document.getElementById('photo-hint');
+            const era = document.getElementById('photo-era');
+
+            if (!photo) return;
+
+            isGenesisColor = !isGenesisColor;
+
+            if (isGenesisColor) {
+                // Color mode
+                photo.style.filter = 'grayscale(0%)';
+                hint.textContent = '📷 Klik';
+                era.textContent = '1947';
+            } else {
+                // Grayscale mode
+                photo.style.filter = 'grayscale(100%)';
+                hint.textContent = '📷 Klik';
+                era.textContent = '1947';
+            }
+        }
+
+        // CAROUSEL LOGIC
+        function moveSlider(direction) {
+            const container = document.getElementById('legends-container');
+            const scrollAmount = 300;
+            container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+
+        // Close Modals on Outside Click
+        window.onclick = function (event) {
+            if (event.target.id === 'info-modal' || event.target.id === 'fase-modal') {
+                closeInfo();
+            }
+        }
+    </script>
+</body>
+
+</html>
