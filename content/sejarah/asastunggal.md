@@ -2,9 +2,9 @@
 <div class="float-left w-full md:w-5/12 mr-6 mb-4">
 <div class="border-4 border-yellow-100 rounded-2xl overflow-hidden shadow-lg transform rotate-2 hover:rotate-0 transition duration-300">
 <!-- Placeholder Image for Asas Tunggal context -->
-<img src="./Logo/Logo PII Baru.png" alt="Diskusi Asas Tunggal" loading="lazy" decoding="async" class="w-full h-auto object-cover">
+<img src="./Logo/Logo PII Baru.webp" alt="Diskusi Asas Tunggal" loading="lazy" decoding="async" class="w-full h-auto object-cover">
 </div>
-<p class="text-xs text-center text-slate-500 mt-3 italic">Era 80-an: Ujian Ideologi</p>
+<p class="text-xs text-center text-slate-500 mt-3 italic">Logo PII</p>
 </div>
 <div class="text-slate-700 leading-relaxed text-justify">
 <h4 class="font-bold text-yellow-600 mb-3 text-lg">Ujian Independensi Organisasi</h4>

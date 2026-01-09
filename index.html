@@ -354,7 +354,46 @@
                         class="px-5 py-2 bg-indigo-600 text-white text-sm rounded-full font-semibold hover:bg-indigo-700 shadow-md transition transform hover:scale-105">Gabung
                         PII</button>
                 </div>
+                <!-- MOBILE MENU BUTTON -->
+                <button id="mobile-menu-btn"
+                    class="md:hidden p-2 text-indigo-900 focus:outline-none rounded-lg hover:bg-indigo-50 transition">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
             </nav>
+
+            <!-- MOBILE MENU CONTAINER (Slide Down) -->
+            <div id="mobile-menu"
+                class="hidden md:hidden fixed top-[73px] left-0 w-full bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-xl z-40 overflow-hidden transform transition-all duration-300 origin-top">
+                <div class="p-6 space-y-4 flex flex-col">
+                    <a href="index.html"
+                        class="block text-gray-700 font-semibold hover:text-indigo-600 transition">Beranda</a>
+
+                    <div class="border-t border-gray-100 pt-4">
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Tentang Kami</p>
+                        <a href="struktur.html" class="block py-2 text-gray-600 hover:text-indigo-600">Struktur
+                            Organisasi</a>
+                        <a href="sejarah.html" class="block py-2 text-gray-600 hover:text-indigo-600">Sejarah &
+                            Nilai</a>
+                    </div>
+
+                    <div class="border-t border-gray-100 pt-4">
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Program</p>
+                        <a href="#program" class="block py-2 text-gray-600 hover:text-indigo-600">Riset Pelajar</a>
+                        <a href="#program" class="block py-2 text-gray-600 hover:text-indigo-600">Madrasah Digital</a>
+                    </div>
+
+                    <div class="flex flex-col gap-3 pt-6 border-t border-gray-100">
+                        <button
+                            class="w-full py-3 text-indigo-600 font-bold border border-indigo-100 rounded-xl hover:bg-indigo-50">Masuk</button>
+                        <button
+                            class="w-full py-3 bg-indigo-600 text-white font-bold rounded-xl shadow-lg shadow-indigo-200">Gabung
+                            PII</button>
+                    </div>
+                </div>
+            </div>
 
             <!-- HERO SECTION -->
             <main
@@ -686,6 +725,17 @@
         </div>
 
         <script>
+            // MOBILE MENU TOGGLE
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    // Simple animation toggle logic if needed, or stick to CSS classes
+                });
+            }
+
             // SKELETON LOADER & IMAGE WAITER
             document.addEventListener("DOMContentLoaded", () => {
                 const skeleton = document.getElementById('global-skeleton');

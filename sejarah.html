@@ -408,7 +408,43 @@
                 class="px-5 py-2 bg-indigo-600 text-white text-sm rounded-full font-semibold hover:bg-indigo-700 shadow-md transition transform hover:scale-105">Gabung
                 PII</button>
         </div>
+        <!-- MOBILE MENU BUTTON -->
+        <button id="mobile-menu-btn"
+            class="md:hidden p-2 text-indigo-900 focus:outline-none rounded-lg hover:bg-indigo-50 transition">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
     </nav>
+
+    <!-- MOBILE MENU CONTAINER -->
+    <div id="mobile-menu"
+        class="hidden md:hidden fixed top-[73px] left-0 w-full bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-xl z-50 overflow-hidden transform transition-all duration-300 origin-top">
+        <div class="p-6 space-y-4 flex flex-col">
+            <a href="index.html" class="block text-gray-700 font-semibold hover:text-indigo-600 transition">Beranda</a>
+
+            <div class="border-t border-gray-100 pt-4">
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Tentang Kami</p>
+                <a href="struktur.html" class="block py-2 text-gray-600 hover:text-indigo-600">Struktur Organisasi</a>
+                <a href="sejarah.html"
+                    class="block py-2 bg-indigo-50 text-indigo-600 rounded px-2 -mx-2 font-semibold">Sejarah & Nilai</a>
+            </div>
+
+            <div class="border-t border-gray-100 pt-4">
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Program</p>
+                <a href="index.html#program" class="block py-2 text-gray-600 hover:text-indigo-600">Riset Pelajar</a>
+                <a href="index.html#program" class="block py-2 text-gray-600 hover:text-indigo-600">Madrasah Digital</a>
+            </div>
+
+            <div class="flex flex-col gap-3 pt-6 border-t border-gray-100">
+                <button
+                    class="w-full py-3 text-indigo-600 font-bold border border-indigo-100 rounded-xl hover:bg-indigo-50">Masuk</button>
+                <button
+                    class="w-full py-3 bg-indigo-600 text-white font-bold rounded-xl shadow-lg shadow-indigo-200">Gabung
+                    PII</button>
+            </div>
+        </div>
+    </div>
 
     <!-- HERO HEADER: SOFT & ELEGANT -->
     <header class="relative pt-24 pb-32 overflow-hidden bg-white">
@@ -513,14 +549,20 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const sk = document.getElementById('fase-skeleton');
-            const imgs = Array.from(document.images);
-            Promise.all(imgs.map(i => {
-                if (i.complete) return Promise.resolve();
-                return new Promise(r => { i.onload = i.onerror = r; });
-            })).then(() => {
+
+            // Fungsi untuk menyembunyikan skeleton
+            function hideSkeleton() {
+                if (!sk || sk.style.display === 'none') return;
                 sk.style.opacity = '0';
                 setTimeout(() => sk.style.display = 'none', 500);
-            });
+            }
+
+            // Opsi 1: Sembunyikan saat semua resource selesai (ideal)
+            window.addEventListener('load', hideSkeleton);
+
+            // Opsi 2: Fallback/Safety Net - Paksa hilang setelah 1.5 detik
+            // Ini mencegah halaman stuck loading jika ada gambar yang lambat/broken
+            setTimeout(hideSkeleton, 1500);
         });
     </script>
 
@@ -844,11 +886,11 @@
                 <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
                     <!-- Value Card 1 -->
                     <div class="soft-card p-8 cursor-pointer group hover:bg-gradient-to-br from-white to-indigo-50"
-                        onclick="openInfo('keseimbangan')">
+                        onclick="openInfo('kebudayaan')">
                         <div
                             class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
                             ⚖️</div>
-                        <h3 class="font-bold text-xl mb-3 text-slate-900">Keseimbangan</h3>
+                        <h3 class="font-bold text-xl mb-3 text-slate-900">Kebudayaan</h3>
                         <p class="text-sm text-slate-500 leading-relaxed">Bahagia dunia dan akhirat. Paduan harmonis
                             antara ilmu, iman, dan amal perbuatan.</p>
                     </div>
@@ -859,7 +901,7 @@
                         <div
                             class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
                             🌱</div>
-                        <h3 class="font-bold text-xl mb-3 text-slate-900">Pendidikan & Kebudayaan</h3>
+                        <h3 class="font-bold text-xl mb-3 text-slate-900">Pendidikan Islam</h3>
                         <p class="text-sm text-slate-500 leading-relaxed">Pendidikan yang sesuai dengan Islam untuk
                             seluruh rakyat Indonesia. Membentuk pribadi muslim cendekia.</p>
                     </div>
@@ -1126,6 +1168,16 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <script>
+        // MOBILE MENU TOGGLE
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
         // DATA KONTEN LENGKAP (Updated to use Markdown Files)
         const contentData = {
             // FASE
@@ -1160,7 +1212,7 @@
                 file: "content/sejarah/brigade.md"
             },
             'piiwati': {
-                icon: "👩", title: "PII Wati (Wanita)", subtitle: "Dekade 1950-an",
+                icon: "👩", title: "PII Wati", subtitle: "Dekade 1950-an",
                 file: "content/sejarah/piiwati.md"
             },
             'pki': {
@@ -1177,13 +1229,13 @@
             },
 
             // SKILL TREE
-            'keseimbangan': {
-                icon: "⚖️", title: "Keseimbangan", subtitle: "Falsafah Gerakan",
-                file: "content/sejarah/keseimbangan.md"
-            },
             'pendidikan': {
-                icon: "🌱", title: "Pendidikan & Kebudayaan", subtitle: "Tujuan PII",
+                icon: "🌱", title: "Pendidikan Islam", subtitle: "Falsafah Gerakan",
                 file: "content/sejarah/pendidikan.md"
+            },
+            'kebudayaan': {
+                icon: "⚖️", title: "Kebudayaan Islam", subtitle: "Tujuan PII",
+                file: "content/sejarah/kebudayaan.md"
             },
             'ukhuwah': {
                 icon: "🤝", title: "Ukhuwah Islamiyah", subtitle: "Basis Kekuatan",

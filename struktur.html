@@ -484,7 +484,44 @@
                 class="px-5 py-2 bg-indigo-600 text-white text-sm rounded-full font-semibold hover:bg-indigo-700 shadow-md transition transform hover:scale-105">Gabung
                 PII</button>
         </div>
+        <!-- MOBILE MENU BUTTON -->
+        <button id="mobile-menu-btn"
+            class="md:hidden p-2 text-indigo-900 focus:outline-none rounded-lg hover:bg-indigo-50 transition">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
     </nav>
+
+    <!-- MOBILE MENU CONTAINER -->
+    <div id="mobile-menu"
+        class="hidden md:hidden fixed top-[73px] left-0 w-full bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-xl z-50 overflow-hidden transform transition-all duration-300 origin-top">
+        <div class="p-6 space-y-4 flex flex-col">
+            <a href="index.html" class="block text-gray-700 font-semibold hover:text-indigo-600 transition">Beranda</a>
+
+            <div class="border-t border-gray-100 pt-4">
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Tentang Kami</p>
+                <a href="struktur.html"
+                    class="block py-2 bg-indigo-50 text-indigo-600 rounded px-2 -mx-2 font-semibold">Struktur
+                    Organisasi</a>
+                <a href="sejarah.html" class="block py-2 text-gray-600 hover:text-indigo-600">Sejarah & Nilai</a>
+            </div>
+
+            <div class="border-t border-gray-100 pt-4">
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Program</p>
+                <a href="index.html#program" class="block py-2 text-gray-600 hover:text-indigo-600">Riset Pelajar</a>
+                <a href="index.html#program" class="block py-2 text-gray-600 hover:text-indigo-600">Madrasah Digital</a>
+            </div>
+
+            <div class="flex flex-col gap-3 pt-6 border-t border-gray-100">
+                <button
+                    class="w-full py-3 text-indigo-600 font-bold border border-indigo-100 rounded-xl hover:bg-indigo-50">Masuk</button>
+                <button
+                    class="w-full py-3 bg-indigo-600 text-white font-bold rounded-xl shadow-lg shadow-indigo-200">Gabung
+                    PII</button>
+            </div>
+        </div>
+    </div>
 
     <!-- HEADER MEWAH (Floating Frames Clickable) -->
     <header class="luxury-header text-center py-40 relative">
@@ -553,15 +590,16 @@
     </header>
 
     <!-- BAGAN STRUKTUR (GRID LAYOUT) -->
-    <main class="py-16 px-4 min-h-screen relative">
-        <svg id="connector-svg" class="connector-container"></svg>
+    <main class="py-16 px-4 min-h-screen relative overflow-hidden">
+        <!-- Connector SVG hidden on mobile to avoid broken lines in stacked view -->
+        <svg id="connector-svg" class="connector-container hidden md:block"></svg>
 
         <div class="max-w-7xl mx-auto flex flex-col items-center gap-16 relative z-10">
 
             <!-- LEVEL 1 -->
-            <div class="level-1 flex justify-center w-full" id="lvl-1">
-                <div class="org-card w-64 shadow-2xl shadow-indigo-200/50" onclick="openProfile('ketum')"
-                    id="card-ketum">
+            <div class="level-1 flex flex-col md:flex-row justify-center items-center w-full" id="lvl-1">
+                <div class="org-card w-full max-w-[260px] md:w-64 shadow-2xl shadow-indigo-200/50"
+                    onclick="openProfile('ketum')" id="card-ketum">
                     <img src="./logo/Foto Pengurus/Ardi.webp" loading="lazy" decoding="async"
                         onerror="this.src='https://via.placeholder.com/150?text=Ardi'" alt="Ketum">
                     <h3 class="text-lg font-bold text-gray-900">M. Ardiansyah</h3>
@@ -570,13 +608,17 @@
             </div>
 
             <!-- LEVEL 2 -->
-            <div class="level-2 flex flex-wrap justify-center gap-10 md:gap-32 w-full" id="lvl-2">
-                <div class="org-card w-56" onclick="openProfile('sekum')" id="card-sekum">
+            <div class="level-2 flex flex-col md:flex-row flex-wrap justify-center items-center gap-8 md:gap-32 w-full"
+                id="lvl-2">
+                <div class="org-card w-full max-w-[240px] md:w-56" onclick="openProfile('sekum')" id="card-sekum">
                     <img src="./logo/Foto Pengurus/Joni Hatta.webp" alt="Sekum" loading="lazy" decoding="async">
                     <h3 class="text-base font-bold text-gray-900">Joni Hatta</h3>
                     <p class="text-sky-600 text-xs font-bold uppercase tracking-wider mt-1">Sekretaris Umum</p>
                 </div>
-                <div class="org-card w-56" onclick="openProfile('bendum')" id="card-bendum">
+                <!-- Connector Line visual for mobile ONLY (vertical line) -->
+                <div class="block md:hidden w-1 h-8 bg-gray-300 -my-4 z-0"></div>
+
+                <div class="org-card w-full max-w-[240px] md:w-56" onclick="openProfile('bendum')" id="card-bendum">
                     <img src="./logo/Foto Pengurus/zahra.webp" alt="Bendum" loading="lazy" decoding="async">
                     <h3 class="text-base font-bold text-gray-900">Habibah Zahra Alatas</h3>
                     <p class="text-sky-600 text-xs font-bold uppercase tracking-wider mt-1">Bendahara Umum</p>
@@ -866,6 +908,16 @@
     </footer>
 
     <script>
+        // MOBILE MENU TOGGLE
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
         // --- KONFIGURASI TEMA PARTIKEL BERGERAK ---
         const roleThemes = {
             'ketum': [

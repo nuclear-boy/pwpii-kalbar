@@ -2,9 +2,9 @@
 <div class="float-left w-full md:w-5/12 mr-6 mb-4">
 <div class="border-4 border-red-100 rounded-2xl overflow-hidden shadow-lg transform rotate-2 hover:rotate-0 transition duration-300">
 <!-- Placeholder Image for PKI/G30S context -->
-<img src="./logo/Logo PII Baru.png" alt="Suasana 1965" loading="lazy" decoding="async" class="w-full h-auto object-cover">
+<img src="./logo/Logo PII Baru.webp" alt="Suasana 1965" loading="lazy" decoding="async" class="w-full h-auto object-cover">
 </div>
-<p class="text-xs text-center text-slate-500 mt-3 italic">Masa Pergolakan 1965</p>
+<p class="text-xs text-center text-slate-500 mt-3 italic">Logo PII</p>
 </div>
 <div class="text-slate-700 leading-relaxed text-justify">
 <h4 class="font-bold text-red-600 mb-3 text-lg">Benteng Akidah Melawan Komunis</h4>
