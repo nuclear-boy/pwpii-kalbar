@@ -6,9 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Struktur Organisasi - PW PII Kalbar</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.transparenttextures.com">
+    <link rel="dns-prefetch" href="https://cdn-icons-png.flaticon.com">
+
+    <!-- Non-blocking Font Loading -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Press+Start+2P&family=VT323&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Press+Start+2P&family=VT323&display=swap"
+            rel="stylesheet">
+    </noscript>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -382,44 +395,44 @@
 
         <!-- Floating Frames (Dokumentasi Penuh - Dengan OnClick) -->
         <div class="floating-frame w-40 h-32 top-10 left-5 anim-float-1 hidden md:block"
-            onclick="openGallery('./logo/Dokumentasi/dok1.jpeg', 'Traning Center')">
-            <img src="./logo/Dokumentasi/dok1.jpeg" alt="Dok 1">
+            onclick="openGallery('./logo/Dokumentasi/dok1.webp', 'Traning Center')">
+            <img src="./logo/Dokumentasi/dok1.webp" alt="Dok 1" loading="lazy" decoding="async">
         </div>
         <div class="floating-frame w-36 h-28 top-1/2 left-10 anim-float-2 hidden md:block"
-            onclick="openGallery('./logo/Dokumentasi/dok2.jpeg', 'Berburu Almaz')">
-            <img src="./logo/Dokumentasi/dok2.jpeg" alt="Dok 2">
+            onclick="openGallery('./logo/Dokumentasi/dok2.webp', 'Berburu Almaz')">
+            <img src="./logo/Dokumentasi/dok2.webp" alt="Dok 2" loading="lazy" decoding="async">
         </div>
         <div class="floating-frame w-44 h-36 bottom-10 left-20 anim-float-3 hidden md:block"
-            onclick="openGallery('./logo/Dokumentasi/dok3.jpeg', 'Pelantikan')">
-            <img src="./logo/Dokumentasi/dok3.jpeg" alt="Dok 3">
+            onclick="openGallery('./logo/Dokumentasi/dok3.webp', 'Pelantikan')">
+            <img src="./logo/Dokumentasi/dok3.webp" alt="Dok 3" loading="lazy" decoding="async">
         </div>
         <div class="floating-frame w-44 h-32 top-12 right-10 anim-float-2 hidden md:block"
-            onclick="openGallery('./logo/Dokumentasi/dok4.jpeg', 'Training Center')">
-            <img src="./logo/Dokumentasi/dok4.jpeg" alt="Dok 4">
+            onclick="openGallery('./logo/Dokumentasi/dok4.webp', 'Training Center')">
+            <img src="./logo/Dokumentasi/dok4.webp" alt="Dok 4" loading="lazy" decoding="async">
         </div>
         <div class="floating-frame w-36 h-36 top-1/2 right-5 anim-float-1 hidden md:block"
-            onclick="openGallery('./logo/Dokumentasi/harbanas.jpg', 'Hari Bangkit Wilayah')">
-            <img src="./logo/Dokumentasi/harbanas.jpg" alt="Dok 5">
+            onclick="openGallery('./logo/Dokumentasi/harbanas.webp', 'Hari Bangkit Wilayah')">
+            <img src="./logo/Dokumentasi/harbanas.webp" alt="Dok 5" loading="lazy" decoding="async">
         </div>
         <div class="floating-frame w-40 h-32 bottom-20 right-24 anim-float-2 hidden md:block"
             onclick="openGallery('./logo/Dokumentasi/kb herman.webp', 'Silahturahmi Rumah KB')">
-            <img src="./logo/Dokumentasi/kb herman.webp" alt="Dok 6">
+            <img src="./logo/Dokumentasi/kb herman.webp" alt="Dok 6" loading="lazy" decoding="async">
         </div>
         <div class="floating-frame w-32 h-24 top-20 left-1/3 anim-float-1 hidden md:block opacity-30"
-            onclick="openGallery('./logo/Dokumentasi/lbt bkkn.webp', 'LBTM 2024')">
-            <img src="./logo/Dokumentasi/lbt bkkn.webp" alt="Dok 7">
+            onclick="openGallery('./logo/Dokumentasi/mahasiswa.webp', 'LBTM 2024')">
+            <img src="./logo/Dokumentasi/mahasiswa.webp" alt="Dok 7" loading="lazy" decoding="async">
         </div>
         <div class="floating-frame w-32 h-24 bottom-24 right-1/3 anim-float-2 hidden md:block opacity-30"
-            onclick="openGallery('./logo/Dokumentasi/sma3.jpg', 'LBT AKBAR SMA 3')">
-            <img src="./logo/Dokumentasi/sma3.jpg" alt="Dok 8">
+            onclick="openGallery('./logo/Dokumentasi/sma3.webp', 'LBT AKBAR SMA 3')">
+            <img src="./logo/Dokumentasi/sma3.webp" alt="Dok 8" loading="lazy" decoding="async">
         </div>
         <div class="floating-frame w-28 h-28 top-5 left-1/2 anim-float-1 hidden md:block opacity-20"
-            onclick="openGallery('./logo/Dokumentasi/DSC00185.JPG', 'Kolaborasi Bersama Munzalan')">
-            <img src="./logo/Dokumentasi/DSC00185.JPG" alt="Dok 9">
+            onclick="openGallery('./logo/Dokumentasi/DSC00185.webp', 'Kolaborasi Bersama Munzalan')">
+            <img src="./logo/Dokumentasi/DSC00185.webp" alt="Dok 9" loading="lazy" decoding="async">
         </div>
         <div class="floating-frame w-32 h-24 bottom-5 left-1/2 anim-float-2 hidden md:block opacity-20"
-            onclick="openGallery('./logo/Dokumentasi/sambas.jpg', 'Instruktur LBT Sambas 2024')">
-            <img src="./logo/Dokumentasi/sambas.jpg" alt="Dok 10">
+            onclick="openGallery('./logo/Dokumentasi/sambas.webp', 'Instruktur LBT Sambas 2024')">
+            <img src="./logo/Dokumentasi/sambas.webp" alt="Dok 10" loading="lazy" decoding="async">
         </div>
 
         <div class="max-w-4xl mx-auto px-6 relative z-10">
@@ -450,7 +463,7 @@
             <div class="level-1 flex justify-center w-full" id="lvl-1">
                 <div class="org-card w-64 shadow-2xl shadow-indigo-200/50" onclick="openProfile('ketum')"
                     id="card-ketum">
-                    <img src="./logo/Foto Pengurus/Ardi.png"
+                    <img src="./logo/Foto Pengurus/Ardi.webp" loading="lazy" decoding="async"
                         onerror="this.src='https://via.placeholder.com/150?text=Ardi'" alt="Ketum">
                     <h3 class="text-lg font-bold text-gray-900">M. Ardiansyah</h3>
                     <p class="text-indigo-600 text-xs font-bold uppercase tracking-wider mt-1">Ketua Umum</p>
@@ -460,12 +473,12 @@
             <!-- LEVEL 2 -->
             <div class="level-2 flex flex-wrap justify-center gap-10 md:gap-32 w-full" id="lvl-2">
                 <div class="org-card w-56" onclick="openProfile('sekum')" id="card-sekum">
-                    <img src="./logo/Foto Pengurus/Joni Hatta.JPG" alt="Sekum">
+                    <img src="./logo/Foto Pengurus/Joni Hatta.webp" alt="Sekum" loading="lazy" decoding="async">
                     <h3 class="text-base font-bold text-gray-900">Joni Hatta</h3>
                     <p class="text-sky-600 text-xs font-bold uppercase tracking-wider mt-1">Sekretaris Umum</p>
                 </div>
                 <div class="org-card w-56" onclick="openProfile('bendum')" id="card-bendum">
-                    <img src="./logo/Foto Pengurus/zahra.jpeg" alt="Bendum">
+                    <img src="./logo/Foto Pengurus/zahra.webp" alt="Bendum" loading="lazy" decoding="async">
                     <h3 class="text-base font-bold text-gray-900">Habibah Zahra Alatas</h3>
                     <p class="text-sky-600 text-xs font-bold uppercase tracking-wider mt-1">Bendahara Umum</p>
                 </div>
@@ -475,27 +488,27 @@
             <div class="level-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 w-full px-4"
                 id="lvl-3">
                 <div class="org-card" onclick="openProfile('kaderisasi')" id="card-bid1">
-                    <img src="./logo/Foto Pengurus/Nur ‘Atira.jpg" alt="Kaderisasi">
+                    <img src="./logo/Foto Pengurus/Nur ‘Atira.webp" alt="Kaderisasi" loading="lazy" decoding="async">
                     <h3 class="text-sm font-bold text-gray-900">Nur Atira</h3>
                     <p class="text-emerald-600 text-[10px] font-bold uppercase mt-1">Bidang Kaderisasi</p>
                 </div>
                 <div class="org-card" onclick="openProfile('ppo')" id="card-bid2">
-                    <img src="./logo/Foto Pengurus/Besiri.jpg" alt="PPO">
+                    <img src="./logo/Foto Pengurus/Besiri.webp" alt="PPO" loading="lazy" decoding="async">
                     <h3 class="text-sm font-bold text-gray-900">Besirin, S.Psi</h3>
                     <p class="text-emerald-600 text-[10px] font-bold uppercase mt-1">Bidang PPO</p>
                 </div>
                 <div class="org-card" onclick="openProfile('komum')" id="card-bid3">
-                    <img src="./logo/Foto Pengurus/dita.jpg" alt="Komum">
+                    <img src="./logo/Foto Pengurus/dita.webp" alt="Komum" loading="lazy" decoding="async">
                     <h3 class="text-sm font-bold text-gray-900">Dita Bengkayang</h3>
                     <p class="text-emerald-600 text-[10px] font-bold uppercase mt-1">Bidang Komunikasi Umat</p>
                 </div>
                 <div class="org-card" onclick="openProfile('ekonomi')" id="card-bid4">
-                    <img src="./logo/Foto Pengurus/zahra.jpeg" alt="Ekonomi">
+                    <img src="./logo/Foto Pengurus/zahra.webp" alt="Ekonomi" loading="lazy" decoding="async">
                     <h3 class="text-sm font-bold text-gray-900">Habibah Zahra</h3>
                     <p class="text-emerald-600 text-[10px] font-bold uppercase mt-1">Bidang Ekonomi</p>
                 </div>
                 <div class="org-card border-yellow-200 bg-yellow-50/50" onclick="openProfile('riset')" id="card-bid5">
-                    <img src="./logo/Foto Pengurus/Fiqkri Putra Riswanda.JPG"
+                    <img src="./logo/Foto Pengurus/Fiqkri Putra Riswanda.webp" loading="lazy" decoding="async"
                         onerror="this.src='https://via.placeholder.com/150?text=Riset'" alt="Riset">
                     <h3 class="text-sm font-bold text-gray-900">Fiqkri Putra Riswanda</h3>
                     <p class="text-yellow-600 text-[10px] font-bold uppercase mt-1">Bidang Riset</p>
@@ -770,7 +783,7 @@
             'ketum': {
                 name: "M. Ardiansyah",
                 pos: "Ketua Umum",
-                img: "./logo/Foto Pengurus/Ardi.png",
+                img: "./logo/Foto Pengurus/Ardi.webp",
                 bio: { "Jurusan": "S1 Ilmu Al-Qur'an dan Tafsir", "Instansi": "IAIN Pontianak", "Minat": "Baca dan Literasi Islam", "Skill": "Leadership" },
                 socials: { ig: "@ardi_pii", fb: "Ardiansyah" },
                 quote: "Pemimpin bukan tentang posisi, tapi tentang aksi.",
@@ -779,7 +792,7 @@
             'sekum': {
                 name: "Joni Hatta",
                 pos: "Sekretaris Umum",
-                img: "./logo/Foto Pengurus/Joni Hatta.JPG",
+                img: "./logo/Foto Pengurus/Joni Hatta.webp",
                 bio: { "Jurusan": "D3 Adm. Negara", "Instansi": "Politeknik Negeri Pontianak", "Minat": "Human Management", "Skill": "Manajemen" },
                 socials: { ig: "@sekum_pii" },
                 quote: "Ketertiban administrasi adalah pangkal keberhasilan organisasi.",
@@ -788,7 +801,7 @@
             'bendum': {
                 name: "Habibah Zahra Alatas",
                 pos: "Bendahara Umum",
-                img: "./logo/Foto Pengurus/zahra.jpeg",
+                img: "./logo/Foto Pengurus/zahra.webp",
                 bio: { "Jurusan": "S1 Administrasi Bisnis", "Instansi": "IAIN Pontianak", "Minat": "Entrepreneur", "Skill": "Finance Managemen & Entrepreneurship" },
                 socials: { ig: "@bendum_pii" },
                 quote: "Transparansi dan akuntabilitas adalah kunci kepercayaan.",
@@ -797,25 +810,25 @@
             'kaderisasi': {
                 name: "Nur Atira",
                 pos: "Bidang Kaderisasi",
-                img: "./logo/Foto Pengurus/Nur ‘Atira.jpg",
+                img: "./logo/Foto Pengurus/Nur ‘Atira.webp",
                 bio: { "Jurusan": "S1 Komisi Penyiaran Islam", "Instansi": "IAIN Pontianak", "Minat": "Teaching", "Skill": "Public Speaking" },
                 socials: { ig: "https://www.instagram.com/atiraa_nr/?utm_source=ig_web_button_share_sheet" },
                 quote: "Ayo bang ke almaz sekarang, mumpung maghrib sepi.",
-                staff: [{ name: "Putri Aulia", pos: "Dept. Taklim", img: "./logo/Foto Pengurus/putri aulia.jpg", role: "kaderisasi", bio: { "Jurusan": "S1 Pendidikan Islam", "Instansi": "IAIN Pontianak", "Minat": "Ilmu Tilawah Al-Qur'an", "Skill": "Mengaji" }, socials: { ig: "https://www.instagram.com/__ptriaaulia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" }, quote: "Nda an tau aku." }]
+                staff: [{ name: "Putri Aulia", pos: "Dept. Taklim", img: "./logo/Foto Pengurus/putri aulia.webp", role: "kaderisasi", bio: { "Jurusan": "S1 Pendidikan Islam", "Instansi": "IAIN Pontianak", "Minat": "Ilmu Tilawah Al-Qur'an", "Skill": "Mengaji" }, socials: { ig: "https://www.instagram.com/__ptriaaulia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" }, quote: "Nda an tau aku." }]
             },
             'ppo': {
                 name: "Besirin, S.Psi.",
                 pos: "Bidang PPO",
-                img: "./logo/Foto Pengurus/Besiri.jpg",
+                img: "./logo/Foto Pengurus/Besiri.webp",
                 bio: { "Jurusan": "S1 & S2 Psikologi Islam", "Instansi": "Univ. Negeri Yogyakarta", "Minat": "Character Building", "Skill": "Networking" },
                 socials: { ig: "@ppo_pii" },
                 quote: "Organisasi yang kuat berawal dari daerah yang berdaya.",
-                staff: [{ name: "Lukman", pos: "Staff PPO", img: "./logo/Foto Pengurus/lukman.jpg", role: "ppo", bio: { "Minat": "Physical Training", "Skill": "Islamic Public Speaking" }, socials: { ig: "https://www.instagram.com/manlukqman/" }, quote: "Bertaqwalah Kepada Allah" }]
+                staff: [{ name: "Lukman", pos: "Staff PPO", img: "./logo/Foto Pengurus/lukman.webp", role: "ppo", bio: { "Minat": "Physical Training", "Skill": "Islamic Public Speaking" }, socials: { ig: "https://www.instagram.com/manlukqman/" }, quote: "Bertaqwalah Kepada Allah" }]
             },
             'komum': {
                 name: "Dita Bengkayang",
                 pos: "Bidang Komum",
-                img: "./logo/Foto Pengurus/dita.jpg",
+                img: "./logo/Foto Pengurus/dita.webp",
                 bio: { "Jurusan": "Komunikasi", "Instansi": "IAIN Pontianak", "Minat": "Jurnalistik", "Skill": "Public Speaking" },
                 socials: { ig: "@komum" },
                 quote: "Membangun jembatan silaturahmi.",
@@ -824,7 +837,7 @@
             'ekonomi': {
                 name: "Habibah Zahra",
                 pos: "Bidang Ekonomi",
-                img: "./logo/Foto Pengurus/zahra.jpeg",
+                img: "./logo/Foto Pengurus/zahra.webp",
                 bio: { "Jurusan": "Administrasi Bisnis", "Instansi": "IAIN Pontianak", "Minat": "Entrepreneur", "Skill": "Trading" },
                 socials: { ig: "@eko" },
                 quote: "Kemandirian ekonomi fondasi pergerakan.",
@@ -833,7 +846,7 @@
             'riset': {
                 name: "Fiqkri Putra Riswanda",
                 pos: "Bidang Riset & Digitalisasi",
-                img: "./logo/Foto Pengurus/Fiqkri Putra Riswanda.JPG",
+                img: "./logo/Foto Pengurus/Fiqkri Putra Riswanda.webp",
                 bio: { "Jurusan": "S1 Fisika", "Instansi": "Univ. Tanjungpura", "Minat": "Computational Physics, Machine Learning, & Data Science", "Skill": "Programming, Data Analys, Human Management" },
                 socials: { ig: "https://www.instagram.com/_fqkriptra_/", linkedin: "fiqkri-putra" },
                 quote: "Data driven decision making untuk organisasi yang modern.",
@@ -982,7 +995,7 @@
                 const div = document.createElement('div');
                 div.className = 'flex items-center gap-3 min-w-[180px] bg-white p-2 rounded-lg border border-gray-100 shadow-sm hover:shadow-md cursor-pointer transition';
                 div.onclick = () => openProfile(staff);
-                div.innerHTML = `<img src="${staff.img}" class="w-10 h-10 rounded-full border border-gray-200 object-cover" style="object-position: center 35%; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; transform: scale(1.15); backface-visibility: hidden;"><div><p class="text-xs font-bold text-gray-800 leading-tight">${staff.name}</p><p class="text-[10px] text-gray-500">${staff.pos}</p></div>`;
+                div.innerHTML = `<img src="${staff.img}" loading="lazy" decoding="async" class="w-10 h-10 rounded-full border border-gray-200 object-cover" style="object-position: center 35%; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; transform: scale(1.15); backface-visibility: hidden;"><div><p class="text-xs font-bold text-gray-800 leading-tight">${staff.name}</p><p class="text-[10px] text-gray-500">${staff.pos}</p></div>`;
                 container.appendChild(div);
             });
             updateStaffPosition();
