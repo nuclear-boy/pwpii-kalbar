@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sedang Dalam Perbaikan - PW PII Kalbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0f172a;
+            /* Dark Slate */
+            color: #e2e8f0;
+            font-family: 'Press Start 2P', cursive;
+            overflow: hidden;
+        }
+
+        /* --- PIXEL ART ANIMATIONS --- */
+
+        /* Loading Bar */
+        .loading-container {
+            width: 300px;
+            height: 20px;
+            border: 4px solid #fff;
+            padding: 2px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .loading-bar {
+            height: 100%;
+            background-color: #fbbf24;
+            /* Amber/Gold */
+            width: 0%;
+            animation: load 3s steps(10) infinite;
+        }
+
+        @keyframes load {
+            0% {
+                width: 0%;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        /* Floating Pixel Object (Hammer) */
+        .pixel-hammer {
+            font-size: 4rem;
+            display: inline-block;
+            animation: hammer 1s infinite alternate;
+        }
+
+        @keyframes hammer {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(-45deg);
+            }
+        }
+
+        /* Background Grid Animation */
+        .bg-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            animation: scrollGrid 10s linear infinite;
+        }
+
+        @keyframes scrollGrid {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(40px);
+            }
+        }
+
+        /* Glitch Effect Text */
+        .glitch {
+            position: relative;
+            color: #fff;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            left: 2px;
+            text-shadow: -1px 0 #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -2px;
+            text-shadow: -1px 0 #00fff9;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 2s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                clip: rect(10px, 9999px, 30px, 0);
+            }
+
+            20% {
+                clip: rect(80px, 9999px, 100px, 0);
+            }
+
+            40% {
+                clip: rect(30px, 9999px, 60px, 0);
+            }
+
+            60% {
+                clip: rect(50px, 9999px, 20px, 0);
+            }
+
+            80% {
+                clip: rect(20px, 9999px, 10px, 0);
+            }
+
+            100% {
+                clip: rect(70px, 9999px, 90px, 0);
+            }
+        }
+
+        /* Button Style */
+        .pixel-btn {
+            background-color: #4f46e5;
+            color: white;
+            border: 4px solid white;
+            padding: 15px 30px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            box-shadow: 6px 6px 0px 0px #000;
+            transition: transform 0.1s, box-shadow 0.1s;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .pixel-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px 0px #fbbf24;
+            background-color: #4338ca;
+        }
+
+        .pixel-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px #000;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col items-center justify-center min-h-screen text-center px-4 relative">
+
+    <div class="bg-grid"></div>
+
+    <!-- Icon Animasi -->
+    <div class="mb-8">
+        <span class="pixel-hammer">🔨</span>
+        <span class="text-6xl mx-4">🚧</span>
+        <span class="pixel-hammer" style="animation-delay: 0.5s; transform: scaleX(-1);">🔧</span>
+    </div>
+
+    <!-- Judul -->
+    <h1 class="text-2xl md:text-4xl font-bold mb-4 glitch" data-text="UNDER MAINTENANCE">
+        UNDER MAINTENANCE
+    </h1>
+
+    <!-- Deskripsi -->
+    <p class="text-xs md:text-sm text-gray-400 mb-8 max-w-lg leading-relaxed">
+        Kami sedang merenovasi markas digital ini agar lebih canggih.
+        <br>
+        Silakan kembali lagi nanti, Kader!
+    </p>
+
+    <!-- Loading Bar -->
+    <div class="loading-container">
+        <div class="loading-bar"></div>
+    </div>
+    <p class="text-[10px] text-yellow-400 mt-2 blink">UPGRADING SYSTEM... 85%</p>
+
+    <!-- Tombol Kembali -->
+    <a href="index.html" class="pixel-btn">
+        &larr; Kembali ke Beranda
+    </a>
+
+    <!-- Footer Kecil -->
+    <div class="absolute bottom-6 text-[8px] text-gray-600">
+        PW PII KALIMANTAN BARAT &copy; 2024
+    </div>
+
+    <script>
+        // Efek Blink Sederhana
+        setInterval(() => {
+            const blink = document.querySelector('.blink');
+            blink.style.visibility = (blink.style.visibility === 'hidden' ? '' : 'hidden');
+        }, 500);
+    </script>
+</body>
+
+</html>

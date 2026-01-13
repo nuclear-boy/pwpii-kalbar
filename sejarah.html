@@ -331,6 +331,23 @@
             transform: translateY(0);
             pointer-events: auto;
         }
+
+        /* Background Patterns */
+        .hex-bg-light {
+            background-color: #f9fafb;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .hex-bg-dark {
+            background-color: #0f172a;
+            background-image: radial-gradient(#1e293b 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .glass-footer {
+            background: linear-gradient(to bottom, #0f172a, #020617);
+        }
     </style>
 </head>
 
@@ -363,7 +380,7 @@
                         <a href="sejarah.html"
                             class="block px-4 py-3 bg-indigo-50 text-indigo-600 rounded-xl transition font-semibold">Sejarah
                             Berdiri</a>
-                        <a href="#"
+                        <a href="falsafah.html"
                             class="block px-4 py-3 hover:bg-indigo-50 rounded-xl transition text-gray-700 hover:text-indigo-600 font-semibold">Falsafah
                             Gerakan</a>
                     </div>
@@ -402,11 +419,11 @@
             </div>
         </div>
         <div class="hidden md:flex space-x-3">
-            <button
-                class="px-5 py-2 text-sm text-indigo-600 font-semibold hover:text-indigo-800 transition">Masuk</button>
-            <button
+            <a href="main.html"
+                class="px-5 py-2 text-sm text-indigo-600 font-semibold hover:text-indigo-800 transition">Masuk</a>
+            <a href="main.html"
                 class="px-5 py-2 bg-indigo-600 text-white text-sm rounded-full font-semibold hover:bg-indigo-700 shadow-md transition transform hover:scale-105">Gabung
-                PII</button>
+                PII</a>
         </div>
         <!-- MOBILE MENU BUTTON -->
         <button id="mobile-menu-btn"
@@ -437,11 +454,11 @@
             </div>
 
             <div class="flex flex-col gap-3 pt-6 border-t border-gray-100">
-                <button
-                    class="w-full py-3 text-indigo-600 font-bold border border-indigo-100 rounded-xl hover:bg-indigo-50">Masuk</button>
-                <button
-                    class="w-full py-3 bg-indigo-600 text-white font-bold rounded-xl shadow-lg shadow-indigo-200">Gabung
-                    PII</button>
+                <a href="main.html"
+                    class="w-full py-3 text-center text-indigo-600 font-bold border border-indigo-100 rounded-xl hover:bg-indigo-50">Masuk</a>
+                <a href="main.html"
+                    class="w-full py-3 text-center bg-indigo-600 text-white font-bold rounded-xl shadow-lg shadow-indigo-200">Gabung
+                    PII</a>
             </div>
         </div>
     </div>
@@ -595,9 +612,10 @@
                             <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">Harapan untuk memusnahkan
                                 warisan kolonial</p>
                         </div>
-                        <button
+                        <a href="content/sejarah/fase1.md"
+                            onclick="event.stopPropagation(); openFase('fase1', this.getAttribute('href')); return false;"
                             class="mt-4 text-[10px] font-bold text-pii-primary uppercase tracking-widest hover:underline">Baca
-                            Detail</button>
+                            Detail</a>
                     </div>
                 </div>
 
@@ -619,9 +637,10 @@
                             <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">Memenuhi Panggilan
                                 Rasulullah.</p>
                         </div>
-                        <button
+                        <a href="content/sejarah/fase2.md"
+                            onclick="event.stopPropagation(); openFase('fase2', this.getAttribute('href')); return false;"
                             class="mt-4 text-[10px] font-bold text-pii-primary uppercase tracking-widest hover:underline">Baca
-                            Detail</button>
+                            Detail</a>
                     </div>
                 </div>
 
@@ -643,9 +662,10 @@
                             <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">Ekspansi organisasi ke
                                 seluruh pelosok Nusantara.</p>
                         </div>
-                        <button
+                        <a href="content/sejarah/fase3.md"
+                            onclick="event.stopPropagation(); openFase('fase3', this.getAttribute('href')); return false;"
                             class="mt-4 text-[10px] font-bold text-pii-primary uppercase tracking-widest hover:underline">Baca
-                            Detail</button>
+                            Detail</a>
                     </div>
                 </div>
 
@@ -667,9 +687,10 @@
                             <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">Konsolidasi sistem kaderisasi
                                 dan nilai dasar.</p>
                         </div>
-                        <button
+                        <a href="content/sejarah/fase4.md"
+                            onclick="event.stopPropagation(); openFase('fase4', this.getAttribute('href')); return false;"
                             class="mt-4 text-[10px] font-bold text-pii-primary uppercase tracking-widest hover:underline">Baca
-                            Detail</button>
+                            Detail</a>
                     </div>
                 </div>
 
@@ -692,9 +713,10 @@
                             <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">Membangun peradaban dan
                                 memelihara nilai Islam di era modern.</p>
                         </div>
-                        <button
+                        <a href="content/sejarah/fase5.md"
+                            onclick="event.stopPropagation(); openFase('fase5', this.getAttribute('href')); return false;"
                             class="mt-4 text-[10px] font-bold text-pii-primary uppercase tracking-widest hover:underline">Baca
-                            Detail</button>
+                            Detail</a>
                     </div>
                 </div>
             </div>
@@ -726,7 +748,7 @@
 
                 <!-- Item 1 -->
                 <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative z-10 group cursor-pointer"
-                    onclick="openInfo('genesis')">
+                    onclick="openInfo('genesis', this.querySelector('a')?.getAttribute('href'))">
                     <div class="md:w-5/12 text-right pr-8 hidden md:block">
                         <span
                             class="text-6xl font-serif text-slate-200 font-bold group-hover:text-indigo-200 transition duration-300">1947</span>
@@ -738,15 +760,19 @@
                     <div class="md:w-5/12 pl-0 md:pl-8 mt-4 md:mt-0 w-full">
                         <div class="soft-card p-6 border-l-4 border-l-pii-primary hover:pl-8">
                             <h4 class="font-bold text-lg text-slate-900 mb-1">Kelahiran PII</h4>
-                            <p class="text-sm text-slate-600 leading-relaxed">4 Mei 1947. Didirikan oleh Joesdi Ghazali
+                            <p class="text-sm text-slate-600 leading-relaxed mb-3">4 Mei 1947. Didirikan oleh Joesdi
+                                Ghazali
                                 di Yogyakarta.</p>
+                            <a href="content/sejarah/genesis.md"
+                                class="text-[10px] font-bold text-pii-primary uppercase tracking-widest hover:underline">Baca
+                                Detail →</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Item 2 -->
                 <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-12 relative z-10 group cursor-pointer"
-                    onclick="openInfo('agresi')">
+                    onclick="openInfo('agresi', this.querySelector('a')?.getAttribute('href'))">
                     <div class="md:w-5/12 text-left pl-8 hidden md:block">
                         <span
                             class="text-6xl font-serif text-slate-200 font-bold group-hover:text-red-200 transition duration-300">1948</span>
@@ -758,15 +784,18 @@
                     <div class="md:w-5/12 pr-0 md:pr-8 mt-4 md:mt-0 w-full text-right md:text-left">
                         <div class="soft-card p-6 border-r-4 md:border-r-0 md:border-l-4 border-red-500 hover:pl-8">
                             <h4 class="font-bold text-lg text-slate-900 mb-1">Brigade PII</h4>
-                            <p class="text-sm text-slate-600 leading-relaxed">Turun ke medan perang melawan Agresi
+                            <p class="text-sm text-slate-600 leading-relaxed mb-3">Turun ke medan perang melawan Agresi
                                 Militer Belanda.</p>
+                            <a href="content/sejarah/brigade.md"
+                                class="text-[10px] font-bold text-red-600 uppercase tracking-widest hover:underline">Baca
+                                Detail →</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Item 2.5 (PII Wati) -->
                 <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative z-10 group cursor-pointer"
-                    onclick="openInfo('piiwati')">
+                    onclick="openInfo('piiwati', this.querySelector('a')?.getAttribute('href'))">
                     <div class="md:w-5/12 text-right pr-8 hidden md:block">
                         <span
                             class="text-6xl font-serif text-slate-200 font-bold group-hover:text-pink-200 transition duration-300">1960-an</span>
@@ -778,15 +807,18 @@
                     <div class="md:w-5/12 pl-0 md:pl-8 mt-4 md:mt-0 w-full">
                         <div class="soft-card p-6 border-l-4 border-l-pink-500 hover:pl-8">
                             <h4 class="font-bold text-lg text-slate-900 mb-1">PII Wati</h4>
-                            <p class="text-sm text-slate-600 leading-relaxed">Organisasi pelajar muslimah untuk
+                            <p class="text-sm text-slate-600 leading-relaxed mb-3">Organisasi pelajar muslimah untuk
                                 pemberdayaan perempuan.</p>
+                            <a href="content/sejarah/piiwati.md"
+                                class="text-[10px] font-bold text-pink-600 uppercase tracking-widest hover:underline">Baca
+                                Detail →</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Item 3 (Kalbar - 1960s) -->
                 <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-12 relative z-10 group cursor-pointer"
-                    onclick="openInfo('kalbar1')">
+                    onclick="openInfo('kalbar1', this.querySelector('a')?.getAttribute('href'))">
                     <div class="md:w-5/12 text-left pl-8 hidden md:block">
                         <span
                             class="text-6xl font-serif text-slate-200 font-bold group-hover:text-green-200 transition duration-300">1960-an</span>
@@ -798,15 +830,19 @@
                     <div class="md:w-5/12 pr-0 md:pr-8 mt-4 md:mt-0 w-full text-right md:text-left">
                         <div class="soft-card p-6 border-r-4 md:border-r-0 md:border-l-4 border-green-500 hover:pl-8">
                             <h4 class="font-bold text-lg text-slate-900 mb-1">Masuk ke Kalbar</h4>
-                            <p class="text-sm text-slate-600 leading-relaxed">Dibawa oleh pelajar perantau. Komisariat
+                            <p class="text-sm text-slate-600 leading-relaxed mb-3">Dibawa oleh pelajar perantau.
+                                Komisariat
                                 pertama di Pontianak.</p>
+                            <a href="content/sejarah/kalbar1.md"
+                                class="text-[10px] font-bold text-green-600 uppercase tracking-widest hover:underline">Baca
+                                Detail →</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Item 2.7 (PKI/G30S - 1965) -->
                 <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative z-10 group cursor-pointer"
-                    onclick="openInfo('pki')">
+                    onclick="openInfo('pki', this.querySelector('a')?.getAttribute('href'))">
                     <div class="md:w-5/12 text-right pr-8 hidden md:block">
                         <span
                             class="text-6xl font-serif text-slate-200 font-bold group-hover:text-red-900 transition duration-300">1965</span>
@@ -818,15 +854,19 @@
                     <div class="md:w-5/12 pl-0 md:pl-8 mt-4 md:mt-0 w-full">
                         <div class="soft-card p-6 border-l-4 border-l-red-900 hover:pl-8">
                             <h4 class="font-bold text-lg text-slate-900 mb-1">PII & PKI</h4>
-                            <p class="text-sm text-slate-600 leading-relaxed">Benteng pelajar Islam melawan ideologi
+                            <p class="text-sm text-slate-600 leading-relaxed mb-3">Benteng pelajar Islam melawan
+                                ideologi
                                 komunis.</p>
+                            <a href="content/sejarah/pki.md"
+                                class="text-[10px] font-bold text-red-900 uppercase tracking-widest hover:underline">Baca
+                                Detail →</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Item 4 (Asas Tunggal - 1980) -->
                 <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-12 relative z-10 group cursor-pointer"
-                    onclick="openInfo('asastunggal')">
+                    onclick="openInfo('asastunggal', this.querySelector('a')?.getAttribute('href'))">
                     <div class="md:w-5/12 text-left pl-8 hidden md:block">
                         <span
                             class="text-6xl font-serif text-slate-200 font-bold group-hover:text-yellow-600 transition duration-300">1980-an</span>
@@ -838,8 +878,12 @@
                     <div class="md:w-5/12 pr-0 md:pr-8 mt-4 md:mt-0 w-full text-right md:text-left">
                         <div class="soft-card p-6 border-r-4 md:border-r-0 md:border-l-4 border-yellow-600 hover:pl-8">
                             <h4 class="font-bold text-lg text-slate-900 mb-1">Asas Tunggal</h4>
-                            <p class="text-sm text-slate-600 leading-relaxed">Ujian independensi organisasi di era Orde
+                            <p class="text-sm text-slate-600 leading-relaxed mb-3">Ujian independensi organisasi di era
+                                Orde
                                 Baru.</p>
+                            <a href="content/sejarah/asastunggal.md"
+                                class="text-[10px] font-bold text-yellow-600 uppercase tracking-widest hover:underline">Baca
+                                Detail →</a>
                         </div>
                     </div>
                 </div>
@@ -886,35 +930,45 @@
                 <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
                     <!-- Value Card 1 -->
                     <div class="soft-card p-8 cursor-pointer group hover:bg-gradient-to-br from-white to-indigo-50"
-                        onclick="openInfo('kebudayaan')">
+                        onclick="openInfo('kebudayaan', this.querySelector('a')?.getAttribute('href'))">
                         <div
                             class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
                             ⚖️</div>
                         <h3 class="font-bold text-xl mb-3 text-slate-900">Kebudayaan</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed">Bahagia dunia dan akhirat. Paduan harmonis
+                        <p class="text-sm text-slate-500 leading-relaxed mb-4">Bahagia dunia dan akhirat. Paduan
+                            harmonis
                             antara ilmu, iman, dan amal perbuatan.</p>
+                        <a href="content/sejarah/kebudayaan.md"
+                            class="text-[10px] font-bold text-pii-primary uppercase tracking-widest hover:underline">Baca
+                            Selengkapnya →</a>
                     </div>
 
                     <!-- Value Card 2 -->
                     <div class="soft-card p-8 cursor-pointer group hover:bg-gradient-to-br from-white to-green-50"
-                        onclick="openInfo('pendidikan')">
+                        onclick="openInfo('pendidikan', this.querySelector('a')?.getAttribute('href'))">
                         <div
                             class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
                             🌱</div>
                         <h3 class="font-bold text-xl mb-3 text-slate-900">Pendidikan Islam</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed">Pendidikan yang sesuai dengan Islam untuk
+                        <p class="text-sm text-slate-500 leading-relaxed mb-4">Pendidikan yang sesuai dengan Islam untuk
                             seluruh rakyat Indonesia. Membentuk pribadi muslim cendekia.</p>
+                        <a href="content/sejarah/pendidikan.md"
+                            class="text-[10px] font-bold text-green-700 uppercase tracking-widest hover:underline">Baca
+                            Selengkapnya →</a>
                     </div>
 
                     <!-- Value Card 3 -->
                     <div class="soft-card p-8 cursor-pointer group hover:bg-gradient-to-br from-white to-red-50"
-                        onclick="openInfo('ukhuwah')">
+                        onclick="openInfo('ukhuwah', this.querySelector('a')?.getAttribute('href'))">
                         <div
                             class="w-14 h-14 bg-red-100 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition-transform">
                             🤝</div>
                         <h3 class="font-bold text-xl mb-3 text-slate-900">Ukhuwah Islamiyah</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed">Persatuan abadi umat Islam sebagai basis
+                        <p class="text-sm text-slate-500 leading-relaxed mb-4">Persatuan abadi umat Islam sebagai basis
                             kekuatan yang melampaui batas golongan.</p>
+                        <a href="content/sejarah/ukhuwah.md"
+                            class="text-[10px] font-bold text-red-700 uppercase tracking-widest hover:underline">Baca
+                            Selengkapnya →</a>
                     </div>
                 </div>
             </div>
@@ -998,29 +1052,71 @@
                 <div
                     class="w-72 bg-white border border-gray-200 p-4 rounded-2xl shadow-sm hover:shadow-xl transition flex-shrink-0 snap-center group">
                     <div class="aspect-[3/4] bg-purple-50 rounded-xl mb-4 overflow-hidden relative">
-                        <img src="https://via.placeholder.com/300x400?text=TOKOH+4" loading="lazy" decoding="async"
+                        <img src="./logo/KB/ali rahman.webp" loading="lazy" decoding="async"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500 filter sepia-[0.3] group-hover:sepia-0">
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
                             <span
-                                class="text-white text-[10px] font-bold bg-purple-600 px-2 py-1 rounded font-pixel uppercase">Intelektual</span>
+                                class="text-white text-[10px] font-bold bg-purple-600 px-2 py-1 rounded font-pixel uppercase">Leadership</span>
                         </div>
                     </div>
-                    <h3 class="font-bold text-lg text-slate-900">Nama Tokoh 4</h3>
-                    <p class="text-sm text-slate-500">Cendekiawan Muda</p>
+                    <h3 class="font-bold text-lg text-slate-900">Ali Rohman, S.KOM., M.B.A</h3>
+                    <p class="text-sm text-slate-500">Pimpinas BAZNAS Kalimantan Barat 2025-2030</p>
                 </div>
                 <!-- Card 5 -->
                 <div
                     class="w-72 bg-white border border-gray-200 p-4 rounded-2xl shadow-sm hover:shadow-xl transition flex-shrink-0 snap-center group">
                     <div class="aspect-[3/4] bg-blue-50 rounded-xl mb-4 overflow-hidden relative">
-                        <img src="https://via.placeholder.com/300x400?text=TOKOH+5" loading="lazy" decoding="async"
+                        <img src="./logo/KB/pabali.webp" loading="lazy" decoding="async"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500 filter sepia-[0.3] group-hover:sepia-0">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <span
+                                class="text-white text-[10px] font-bold bg-blue-600 px-2 py-1 rounded font-pixel uppercase">Intelektual</span>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900">Dr. H. Pabali Musa, M.Ag</h3>
+                    <p class="text-sm text-slate-500">Ketua Umum PW Muhammadiyah Kalbar</p>
+                </div>
+                <!-- Card 6 -->
+                <div
+                    class="w-72 bg-white border border-gray-200 p-4 rounded-2xl shadow-sm hover:shadow-xl transition flex-shrink-0 snap-center group">
+                    <div class="aspect-[3/4] bg-blue-50 rounded-xl mb-4 overflow-hidden relative">
+                        <img src="./logo/KB/chatib.webp" loading="lazy" decoding="async"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500 filter sepia-[0.3] group-hover:sepia-0">
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
                             <span
                                 class="text-white text-[10px] font-bold bg-blue-600 px-2 py-1 rounded font-pixel uppercase">Diplomat</span>
                         </div>
                     </div>
-                    <h3 class="font-bold text-lg text-slate-900">Nama Tokoh 5</h3>
-                    <p class="text-sm text-slate-500">Kiprah Internasional</p>
+                    <h3 class="font-bold text-lg text-slate-900">Ir. H. Nashrullah Chatib, MT</h3>
+                    <p class="text-sm text-slate-500">Wakil Ketua 3 Baznas Pontianak</p>
+                </div>
+                <!-- Card 6 -->
+                <div
+                    class="w-72 bg-white border border-gray-200 p-4 rounded-2xl shadow-sm hover:shadow-xl transition flex-shrink-0 snap-center group">
+                    <div class="aspect-[3/4] bg-blue-50 rounded-xl mb-4 overflow-hidden relative">
+                        <img src="./logo/KB/ghazali.webp" loading="lazy" decoding="async"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500 filter sepia-[0.3] group-hover:sepia-0">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <span
+                                class="text-white text-[10px] font-bold bg-blue-600 px-2 py-1 rounded font-pixel uppercase">Intelektual</span>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900">Dr. Ahmad Ghazali, M.Ag</h3>
+                    <p class="text-sm text-slate-500">Dosen Tafsir al-Qur'an IAIN Pontianak</p>
+                </div>
+                <!-- Card 6 -->
+                <div
+                    class="w-72 bg-white border border-gray-200 p-4 rounded-2xl shadow-sm hover:shadow-xl transition flex-shrink-0 snap-center group">
+                    <div class="aspect-[3/4] bg-blue-50 rounded-xl mb-4 overflow-hidden relative">
+                        <img src="./logo/KB/sahrun.webp" loading="lazy" decoding="async"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500 filter sepia-[0.3] group-hover:sepia-0">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <span
+                                class="text-white text-[10px] font-bold bg-blue-600 px-2 py-1 rounded font-pixel uppercase">Intelektual</span>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900">Muhammad Syahrun, SE., MM.</h3>
+                    <p class="text-sm text-slate-500">Kepala Bagian Umum dan Layanan Akademik IAIN Pontianak</p>
                 </div>
             </div>
         </div>
@@ -1080,8 +1176,7 @@
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg>
                         <p>Jl. Tebu, Gang. Bersama 1C, Kel. Sungai Jawi, Kec. Pontianak Barat, Kota Pontianak,
-                            Kalimantan
-                            Barat.</p>
+                            Kalimantan Barat.</p>
                     </div>
                     <div class="flex items-center space-x-4">
                         <svg class="w-6 h-6 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor"
@@ -1247,22 +1342,21 @@
         const contentCache = {};
 
         // OPEN FASE MODAL
-        async function openFase(id) {
-            await openGenericModal(id, 'fase-modal');
+        async function openFase(id, overrideFile = null) {
+            await openGenericModal(id, 'fase-modal', overrideFile);
         }
 
         // OPEN INFO MODAL (Timeline & Skill)
-        async function openInfo(id) {
-            await openGenericModal(id, 'info-modal');
+        async function openInfo(id, overrideFile = null) {
+            await openGenericModal(id, 'info-modal', overrideFile);
         }
 
         // GENERIC MODAL OPENER (Async with Fetch)
-        async function openGenericModal(id, modalId) {
+        async function openGenericModal(id, modalId, overrideFile = null) {
             const data = contentData[id];
             if (!data) return;
 
-            // Prepare Modal Elements based on ID
-            let titleEl, subtitleEl, descEl, iconEl;
+            const filename = overrideFile || data.file;
 
             if (modalId === 'fase-modal') {
                 titleEl = document.getElementById('modal-title');
@@ -1298,11 +1392,11 @@
 
             // Fetch Content
             let htmlContent = '';
-            if (contentCache[id]) {
+            if (contentCache[id] && !overrideFile) {
                 htmlContent = contentCache[id];
-            } else if (data.file) {
+            } else if (filename) {
                 try {
-                    const response = await fetch(data.file);
+                    const response = await fetch(filename);
                     if (!response.ok) throw new Error('Network response was not ok');
                     const text = await response.text();
                     htmlContent = marked.parse(text);
