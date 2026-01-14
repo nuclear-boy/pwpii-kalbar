@@ -667,44 +667,43 @@
         </div>
     </main>
 
-    <!-- MODAL PROFIL (DENGAN BACKGROUND IKON PIXEL ART) -->
     <div id="profile-modal"
         class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/80 backdrop-blur-md p-4">
         <div
-            class="modal-content relative w-full max-w-3xl bg-white rounded-[2rem] shadow-2xl overflow-hidden transform scale-90 opacity-0 transition-all duration-300 flex flex-col md:flex-row h-[90vh] md:h-auto max-h-[90vh]">
+            class="modal-content relative w-full max-w-4xl bg-white rounded-[2rem] shadow-2xl overflow-hidden transform scale-90 opacity-0 transition-all duration-300 flex flex-col md:flex-row h-[90vh] md:h-auto max-h-[90vh]">
 
-            <button onclick="closeProfile()"
-                class="absolute top-4 right-4 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center transition shadow-lg border-2 border-red-100 hover:border-red-500 hover:bg-red-50 group"
+            <button onclick="closeProfile()" aria-label="Tutup Profil"
+                class="absolute top-4 right-4 z-50 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center transition shadow-lg border border-slate-200 hover:bg-red-50 hover:text-red-500 group"
                 title="Tutup">
-                <svg class="w-6 h-6 text-red-500 group-hover:scale-110 transition-transform" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                <svg class="w-6 h-6 transition-transform group-hover:rotate-90" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12">
+                    </path>
                 </svg>
             </button>
 
-            <!-- Sisi Kiri: (DYNAMIC BACKGROUND TRANSPARAN) -->
-            <div
-                class="md:w-5/12 bg-indigo-950/60 backdrop-blur-md text-white p-10 flex flex-col items-center justify-center text-center relative overflow-hidden shrink-0">
-                <!-- Dynamic Context Background (Ikon Bergerak) -->
-                <div id="modal-bg-anim"
-                    class="absolute inset-0 pointer-events-none transition-all duration-500 overflow-hidden">
-                    <!-- Partikel akan di-inject di sini via JS -->
+            <!-- Foto Area (40% Desktop) -->
+            <div class="w-full md:w-[40%] h-80 md:h-auto bg-slate-100 shrink-0 relative overflow-hidden group">
+                <img id="modal-img" src="" alt="Foto Pengurus"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    style="object-position: center 25%;">
+                <!-- Mobile Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent md:hidden">
                 </div>
 
-                <div class="absolute inset-0 luxury-pattern opacity-20 mix-blend-overlay"></div>
+                <div class="absolute inset-0 luxury-pattern opacity-10 mix-blend-overlay"></div>
 
                 <div class="relative z-10 w-full flex flex-col items-center">
                     <div
-                        class="w-52 h-52 rounded-full p-1 bg-gradient-to-tr from-yellow-400 to-indigo-500 mb-6 shadow-2xl">
+                        class="w-40 h-40 rounded-full p-1 bg-gradient-to-tr from-yellow-400 to-indigo-500 mb-6 shadow-2xl">
                         <img id="modal-img" src=""
                             class="w-full h-full rounded-full border-4 border-indigo-900 object-cover bg-gray-200">
                     </div>
 
                     <!-- BOX INFORMASI (Glass Card Baru - Lebih Soft & Elegan) -->
                     <div
-                        class="mt-6 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl rounded-xl p-6 w-full max-w-xs border border-white/20 shadow-xl">
-                        <h3 id="modal-name" class="text-lg font-bold tracking-tight mb-2 text-white drop-shadow-md">
+                        class="mt-6 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md rounded-2xl p-6 w-full max-w-xs border border-white/20 shadow-xl">
+                        <h3 id="modal-name" class="text-2xl font-bold tracking-tight mb-2 text-white drop-shadow-md">
                             Nama Lengkap</h3>
                         <div class="inline-block">
                             <p id="modal-pos"
@@ -716,57 +715,65 @@
                 </div>
             </div>
 
-            <!-- Sisi Kanan: Detail Informasi -->
-            <div class="md:w-7/12 bg-white flex flex-col overflow-y-auto">
-                <div class="p-8 md:p-10 space-y-8">
-                    <div>
-                        <h4
-                            class="text-xs font-bold text-indigo-500 uppercase tracking-widest mb-4 flex items-center gap-2 font-pixel text-[10px]">
-                            <span class="w-3 h-3 bg-indigo-500 block mr-1"></span> PLAYER STATS
-                        </h4>
-                        <div class="grid grid-cols-1 gap-y-4 text-sm bg-slate-50 p-6 rounded-xl border-2 border-slate-200 font-mono shadow-inner"
-                            id="modal-bio"></div>
-                    </div>
+            <!-- Stats & Detail -->
+            <div class="space-y-12">
+                <div>
+                    <h4
+                        class="text-[10px] font-pixel text-indigo-400 uppercase tracking-widest mb-6 flex items-center gap-3">
+                        <span
+                            class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(99,102,241,0.6)]"></span>
+                        Player Stats
+                    </h4>
+                    <div class="grid grid-cols-1 gap-4 text-base md:text-lg bg-slate-50/80 p-6 md:p-8 rounded-[2rem] border-2 border-slate-100/50 font-medium text-slate-700"
+                        id="modal-bio"></div>
+                </div>
 
-                    <div class="relative pl-6 border-l-4 border-yellow-400">
-                        <svg class="absolute -top-3 -left-2 w-6 h-6 text-yellow-400 bg-white" fill="currentColor"
-                            viewBox="0 0 24 24">
-                            <path
-                                d="M14.017 21L14.017 18C14.017 16.896 14.321 16.062 14.929 15.498C15.537 14.934 16.329 14.652 17.305 14.652L17.565 14.652C18.673 14.652 19.227 14.098 19.227 12.99V10.278C19.227 9.17 18.673 8.616 17.565 8.616L17.201 8.616C16.213 8.616 15.421 8.334 14.825 7.77C14.229 7.206 13.931 6.372 13.931 5.268L13.931 3L16.271 3C17.379 3 17.933 3.554 17.933 4.662V5.598C17.933 6.706 9.237 7.54 9.845 8.104C10.453 8.668 11.245 8.95 12.221 8.95L12.481 8.95C13.589 8.95 14.143 9.504 14.143 10.612V21H14.017ZM5.017 21L5.017 18C5.017 16.896 5.321 16.062 5.929 15.498C6.537 14.934 7.329 14.652 8.305 14.652L8.565 14.652C9.673 14.652 10.227 14.098 10.227 12.99V10.278C10.227 9.17 9.673 8.616 8.565 8.616L8.201 8.616C7.213 8.616 6.421 8.334 5.825 7.77C5.229 7.206 4.931 6.372 4.931 5.268L4.931 3L7.271 3C8.379 3 8.933 3.554 8.933 4.662V5.598C8.933 6.706 9.237 7.54 9.845 8.104C10.453 8.668 11.245 8.95 12.221 8.95L12.481 8.95C13.589 8.95 14.143 9.504 14.143 10.612V21H14.017Z" />
-                        </svg>
-                        <p id="modal-quote" class="text-gray-700 italic text-lg leading-relaxed font-serif">"..."</p>
-                        <p class="text-xs text-gray-400 mt-2 font-bold uppercase tracking-wide">Mission Objective</p>
+                <!-- Quote Box -->
+                <div class="relative pl-10 py-2">
+                    <div
+                        class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-yellow-400 to-amber-500 rounded-full">
                     </div>
+                    <svg class="absolute -top-6 -left-2 w-16 h-16 text-slate-100 -z-10" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path d="M14.017 21L14.017 18C14.017 16.896..." />
+                    </svg>
+                    <p id="modal-quote" class="text-slate-800 italic text-xl md:text-2xl leading-relaxed font-serif">
+                        "..."</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <div class="w-8 h-px bg-slate-200"></div>
+                        <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Personal
+                            Mantra</span>
+                    </div>
+                </div>
 
-                    <div class="pt-4 border-t border-gray-100 mt-auto">
-                        <div class="flex justify-between items-center mb-4">
-                            <h4
-                                class="text-[9px] font-bold text-indigo-500 uppercase tracking-widest font-pixel text-[10px]">
-                                PARTY MEMBERS</h4>
-                            <div class="flex space-x-2">
-                                <button onclick="prevStaff()"
-                                    class="w-8 h-8 rounded bg-gray-100 border-2 border-gray-300 flex items-center justify-center hover:bg-gray-200 transition shadow-[2px_2px_0px_rgba(0,0,0,0.1)] active:shadow-none active:translate-y-[2px]"><svg
-                                        class="w-3 h-3 text-gray-600" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path d="M15 19l-7-7 7-7" stroke-width="3" stroke-linecap="square"></path>
-                                    </svg></button>
-                                <button onclick="nextStaff()"
-                                    class="w-8 h-8 rounded bg-gray-100 border-2 border-gray-300 flex items-center justify-center hover:bg-gray-200 transition shadow-[2px_2px_0px_rgba(0,0,0,0.1)] active:shadow-none active:translate-y-[2px]"><svg
-                                        class="w-3 h-3 text-gray-600" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path d="M9 5l7 7-7 7" stroke-width="3" stroke-linecap="square"></path>
-                                    </svg></button>
-                            </div>
+                <div class="pt-4 border-t border-gray-100 mt-auto">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="text-xs font-bold text-indigo-500 uppercase tracking-widest font-pixel text-[10px]">
+                            PARTY MEMBERS</h4>
+                        <div class="flex space-x-2">
+                            <button onclick="prevStaff()"
+                                class="w-8 h-8 rounded bg-gray-100 border-2 border-gray-300 flex items-center justify-center hover:bg-gray-200 transition shadow-[2px_2px_0px_rgba(0,0,0,0.1)] active:shadow-none active:translate-y-[2px]"><svg
+                                    class="w-3 h-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M15 19l-7-7 7-7" stroke-width="3" stroke-linecap="square"></path>
+                                </svg></button>
+                            <button onclick="nextStaff()"
+                                class="w-8 h-8 rounded bg-gray-100 border-2 border-gray-300 flex items-center justify-center hover:bg-gray-200 transition shadow-[2px_2px_0px_rgba(0,0,0,0.1)] active:shadow-none active:translate-y-[2px]"><svg
+                                    class="w-3 h-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 5l7 7-7 7" stroke-width="3" stroke-linecap="square"></path>
+                                </svg></button>
                         </div>
-                        <div class="relative overflow-hidden h-24">
-                            <div id="staff-container"
-                                class="flex gap-4 transition-transform duration-300 ease-in-out absolute top-0 left-0 h-full items-center">
-                            </div>
+                    </div>
+                    <div class="relative overflow-hidden h-32">
+                        <div id="staff-container"
+                            class="flex gap-5 transition-transform duration-500 ease-out absolute top-0 left-0 h-full items-center">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
+    </div>
     </div>
     <style>
         /* Tambahan agar scrollbar lebih cantik dan tipis */
@@ -1050,8 +1057,8 @@
                 name: "Zahra Najwa Alatas",
                 pos: "Bendahara Umum",
                 img: "./logo/Foto Pengurus/zahra.webp",
-                bio: { "Jurusan": "S1 Administrasi Bisnis", "Instansi": "IAIN Pontianak", "Minat": "Entrepreneurship", "Skill": "Finance Managemen & Entrepreneurship" },
-                socials: { ig: "https://www.instagram.com/znalatas/" },
+                bio: { "Jurusan": "S1 Administrasi Bisnis", "Instansi": "IAIN Pontianak", "Minat": "Entrepreneur", "Skill": "Finance Managemen & Entrepreneurship" },
+                socials: { ig: "@bendum_pii" },
                 quote: "Transparansi dan akuntabilitas adalah kunci kepercayaan.",
                 staff: []
             },
@@ -1074,7 +1081,7 @@
                 staff: [{ name: "Lukman", pos: "Staff PPO", img: "./logo/Foto Pengurus/lukman.webp", role: "ppo", bio: { "Minat": "Physical Training", "Skill": "Islamic Public Speaking" }, socials: { ig: "https://www.instagram.com/manlukqman/" }, quote: "Bertaqwalah Kepada Allah" }]
             },
             'komum': {
-                name: "Dita Azzahra",
+                name: "Dita Bengkayang",
                 pos: "Bidang Komum",
                 img: "./logo/Foto Pengurus/dita.webp",
                 bio: { "Jurusan": "Komunikasi", "Instansi": "IAIN Pontianak", "Minat": "Jurnalistik", "Skill": "Public Speaking" },
@@ -1086,9 +1093,9 @@
                 name: "Zahra Najwa Alatas",
                 pos: "Bidang Ekonomi",
                 img: "./logo/Foto Pengurus/zahra.webp",
-                bio: { "Jurusan": "Administrasi Bisnis", "Instansi": "IAIN Pontianak", "Minat": "Entrepreneurship", "Skill": "Trading" },
-                socials: { ig: "https://www.instagram.com/znalatas/" },
-                quote: "Kemandirian ekonomi merupakan fondasi pergerakan.",
+                bio: { "Jurusan": "Administrasi Bisnis", "Instansi": "IAIN Pontianak", "Minat": "Entrepreneur", "Skill": "Trading" },
+                socials: { ig: "@eko" },
+                quote: "Kemandirian ekonomi fondasi pergerakan.",
                 staff: []
             },
             'riset': {
@@ -1096,7 +1103,7 @@
                 pos: "Bidang Riset & Digitalisasi",
                 img: "./logo/Foto Pengurus/Fiqkri Putra Riswanda.webp",
                 bio: { "Jurusan": "S1 Fisika", "Instansi": "Univ. Tanjungpura", "Minat": "Computational Physics, Machine Learning, & Data Science", "Skill": "Programming, Data Analys, Human Management" },
-                socials: { ig: "https://www.instagram.com/_fqkriptra_/", linkedin: "ttps://www.linkedin.com/in/fiqkri-putra-riswanda-958766338/" },
+                socials: { ig: "https://www.instagram.com/_fqkriptra_/", linkedin: "fiqkri-putra" },
                 quote: "Data driven decision making untuk organisasi yang modern.",
                 staff: []
             }
@@ -1168,9 +1175,11 @@
                 for (const [key, value] of Object.entries(data.bio)) {
                     const icon = pixelIcons[key] || "🔹";
                     bioContainer.innerHTML += `
-                    <div class="flex items-center justify-between border-b border-gray-200 pb-2 border-dashed last:border-0">
-                        <span class="text-indigo-600 font-bold uppercase tracking-wider text-[10px]">${icon} ${key}</span>
-                        <span class="font-bold text-gray-800 text-right">${value}</span>
+                    <div class="flex items-center justify-between border-b border-slate-200 pb-3 last:border-0 hover:bg-white/50 transition-colors px-2 -mx-2 rounded-lg">
+                        <span class="text-indigo-500 font-bold uppercase tracking-[0.15em] text-[9px] md:text-[11px] flex items-center gap-2">
+                            <span class="opacity-50">${icon}</span> ${key}
+                        </span>
+                        <span class="font-bold text-slate-900 text-sm md:text-base text-right drop-shadow-sm">${value}</span>
                     </div>`;
                 }
             } else {
@@ -1194,7 +1203,11 @@
                         const base = platform === 'ig' ? 'https://instagram.com/' : (platform === 'fb' ? 'https://facebook.com/' : 'https://linkedin.com/in/');
                         url = `${base}${cleanHandle}`;
                     }
-                    socialContainer.innerHTML += `<a href="${url}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-yellow-400 hover:text-indigo-900 transition-all duration-300 shadow-lg hover:scale-110">${icons[platform] || platform}</a>`;
+                    socialContainer.innerHTML += `<a href="${url}" target="_blank" rel="noopener noreferrer" 
+                        class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-indigo-600 hover:text-white transition-all duration-300 border border-slate-200 shadow-sm hover:scale-110 active:scale-95 group"
+                        title="Follow @${handle}">
+                        ${icons[platform] || platform}
+                    </a>`;
                 }
             }
 
